@@ -18,7 +18,7 @@ function render_action($route) {
 }
 if($_SERVER['REQUEST_URI']=='/') {
 	header("Status: 303 See Other", false, 303);
-	header('Location : home/show');
+	header('Location : index/index');
 	exit();
 }
 
