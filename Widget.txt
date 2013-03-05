@@ -1,0 +1,47 @@
+User:
+-log in
+-log out
+-edit
+-show
+-sign up
+
+
+Shop:
+-add
+-edit
+-remove
+-get
+-buy
+
+Session:
+-update
+-start
+-end
+
+Tournament:
+-new
+-start
+-end
+-scores
+-join
+-leave
+-cancel (si la dernière équipe quitte)
+
+Team:
+-join team
+-leave team
+-join queue
+-lean queue
+
+Friends:
+-add
+-remove
+
+Currency:
+-buy
+-revert
+-confirm
+
+Website:
+-contact
+-index
