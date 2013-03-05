@@ -1,7 +1,9 @@
 <?php 
+
 $context = array();
 
 function render_action($route) {
+	
 	$actionFile = __DIR__.'/app/module/'.$route.'.php';	
 	if (file_exists($actionFile))
 		include ($actionFile);
@@ -13,7 +15,7 @@ function render_action($route) {
   		include ($viewFile);
   		$out = ob_get_contents();
   		ob_end_clean();
-	}	
+	}
  	return $out;
 }
 if($_SERVER['REQUEST_URI']=='/') {
@@ -79,7 +81,7 @@ if (null != $out)
 			</div>
 			<div class="clear"></div>
 			<div id="content">
-				<?php echo render_action('home/show') ?>
+				<?php echo render_action('index/index') ?>
 			</div>
 			<div class="clear"></div>
 			<div id="footer">

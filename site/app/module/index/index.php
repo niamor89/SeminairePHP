@@ -1,1 +1,6 @@
-<?php //some action ?>
+<?php
+
+global $context;
+$context["title"] = "Accueil";
+
+?>
