@@ -1,0 +1,6 @@
+# Turn on URL rewriting engine
+RewriteEngine On
+# Disable rewriting for existing files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+) index.php?action=$1 [PT,L]
+#RewriteCond %{Request_URI} !^.*/assets/.* 
