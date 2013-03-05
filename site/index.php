@@ -39,6 +39,13 @@ if (null != $out)
 		<meta name="description" content="Survival Camp : Jouez en coopération avec vos amis et participez aux tournois pour gagner de l'argent !" />
 		
 		<link href="/assets/styles/default/style.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/styles/default/Farah.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/styles/default/RomainN.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/styles/default/RomainT.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/styles/default/Antoine.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/styles/default/Ousmane.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/styles/default/Ruslan.css" rel="stylesheet" type="text/css" />
+		
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		
 		<link rel="icon" type="image/png" href="/assets/default/img/favicon.ico" /> 
