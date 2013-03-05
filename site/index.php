@@ -4,6 +4,7 @@ $context = array();
 
 function render_action($route) {
 	
+	global $context;
 	$actionFile = __DIR__.'/app/module/'.$route.'.php';	
 	if (file_exists($actionFile))
 		include ($actionFile);
