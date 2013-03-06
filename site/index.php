@@ -82,7 +82,7 @@ if (null != $out)
 			</div>
 			<div class="clear"></div>
 			<div id="content">
-				<?php echo render_action('session/get_client') ?>
+				<?php echo $out; ?>
 			</div>
 			<div class="clear"></div>
 			<div id="footer">
