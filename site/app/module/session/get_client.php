@@ -11,7 +11,7 @@
 			<div>
 				<img src="sprites/arbre.png"/>
 				Bois : <div id="wood">0</div>
-			</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</div>
 			<div>
 				<img src="sprites/pierre.png"/>
 				Rochers : <div id="rock">0</div>

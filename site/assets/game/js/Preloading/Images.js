@@ -1,43 +1,43 @@
 (function (SC) {
-	SC.Images = {}; // Namespace pour les Images
+	SC.Img = {}; // Namespace pour les Images
 	
 	// IMAGES A PRECHARGER
 	var imgs = new Array();
-	imgs.push('toto.jpg');
-	imgs.push('tata.jpg');
-	imgs.push('titi.jpg');
+	//imgs.push('toto.jpg');
+	//imgs.push('tata.jpg');
+	//imgs.push('titi.jpg');
 	
-	SC.Images.preload = new Array(); // Images préchargées
+	SC.Img.preload = new Array(); // Images préchargées
 	
 	// Précharger les Images
-	SC.Images.load_images = function (i) {
-		if(i>=imgs.length) { Game_Loop(); return; }
+	SC.Img.load_images = function (i) {
+		if(i>=imgs.length) { SC.GL.Game_Loop(); return; }
 		var img = new Image();
 		img.src = 'assets/img/'+imgs[i];
-		SC.Images.preload.push(img);
-		img.onload = function () { SC.Images.load_images(i+1); };
+		SC.Img.preload.push(img);
+		img.onload = function () { SC.Img.load_images(i+1); };
 		return;				
 	};
 
-	SC.Images.sprites = new Array(); // L'image des sprites
+	SC.Img.sprites = new Array(); // L'image des sprites
 
 	// Précharger les Sprites
-	// /!\Event : SC.Images.sprites_onload
-	SC.Images.load_sprites = function () {
-		SC.Images.sprites = new Image();
-		SC.Images.sprites.src = 'assets/game/img/sprites.png';
-		SC.Images.sprites.onload = function () {
-			if(SC.Images.sprites_onload) SC.Images.sprites_onload(); //Execute le listener de l'event si tel existe
+	// /!\Event : SC.Img.sprites_onload
+	SC.Img.load_sprites = function () {
+		SC.Img.sprites = new Image();
+		SC.Img.sprites.src = 'assets/game/img/sprites.png';
+		SC.Img.sprites.onload = function () {
+			if(SC.Img.sprites_onload) SC.Img.sprites_onload(); //Execute le listener de l'event si tel existe
 		};
 	};
 	
 	// Précharger les Tiles
-	// /!\Event : SC.Images.tiles_onload
-	SC.Images.load_tiles = function () {
-		SC.Images.tiles = new Image();
-		SC.Images.tiles.src = 'assets/game/img/tiles.png';
-		SC.Images.tiles.onload = function () {
-			if(SC.Images.tiles_onload) SC.Images.tiles_onload(); //Execute le listener de l'event si tel existe
+	// /!\Event : SC.Img.tiles_onload
+	SC.Img.load_tiles = function () {
+		SC.Img.tiles = new Image();
+		SC.Img.tiles.src = 'assets/game/img/tiles.png';
+		SC.Img.tiles.onload = function () {
+			if(SC.Img.tiles_onload) SC.Img.tiles_onload(); //Execute le listener de l'event si tel existe
 		};
 	};
 	

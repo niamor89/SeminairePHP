@@ -12,7 +12,7 @@
 		SC.can = document.getElementById('canvas');
 		SC.ctx = SC.can.getContext('2d');
 		
-		SC.Images.load_images(0);
+		SC.Img.load_images(0);
 		
 		document.body.onkeydown = function (evt) {
 			//alert(evt.keyCode);
