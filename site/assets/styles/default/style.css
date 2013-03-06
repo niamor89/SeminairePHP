@@ -12,7 +12,7 @@ footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
-  border: 0;
+  border-style:none;
   font-size: 100%;
   vertical-align: baseline;
 }
@@ -80,7 +80,7 @@ body { color:#FFF; background-color:#402d22; }
 /**************** HEADER *********************/
 #header #menu { width:600px; position:absolute; top:20px; left:212px;  }
 #header #menu ul li { display:inline; margin-left:10px; position:relative; }
-#header #menu ul li span { display:none; position:absolute; top:20px; left:-20px; width:150px; text-align:center; }
+#header #menu ul li .title { display:none; position:absolute; top:20px; left:-20px; width:150px; text-align:center; }
 #header #menu ul li:hover span { display:inline; }
 
 /**************** CONTENT ********************/

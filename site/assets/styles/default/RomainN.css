@@ -1,0 +1,24 @@
+/**************** HEADER *********************/
+	
+	/* Icones du menu */
+#header #menu .menu_icon {width:30px; height:30px;}
+#header #menu #home {background:url(/assets/img/icones1.png) 0 0; outline:none;} 
+#header #menu #new_game {background:url(/assets/img/icones1.png) -210px 0; outline:none;} 
+#header #menu #tournament {background:url(/assets/img/icones1.png) -240px 0; outline:none;} 
+#header #menu #classment {background:url(/assets/img/icones1.png) -90px 0; outline:none;} 
+#header #menu #shop {background:url(/assets/img/icones1.png) -120px 0; outline:none;} 
+#header #menu #buy {background:url(/assets/img/icones1.png) -150px 0; outline:none;}
+
+#header #menu #home:hover {background:url(/assets/img/icones1.png) 0 -30px; outline:none;} 
+#header #menu #new_game:hover {background:url(/assets/img/icones1.png) -210px -30px; outline:none;} 
+#header #menu #tournament:hover {background:url(/assets/img/icones1.png) -240px -30px; outline:none;} 
+#header #menu #classment:hover {background:url(/assets/img/icones1.png) -90px -30px; outline:none;} 
+#header #menu #shop:hover {background:url(/assets/img/icones1.png) -120px -30px; outline:none;} 
+#header #menu #buy:hover {background:url(/assets/img/icones1.png) -150px -30px; outline:none;}
+	
+/*
+#header #menu { width:600px; position:absolute; top:20px; left:212px;  }
+#header #menu ul li { display:inline; margin-left:10px; position:relative; }
+#header #menu ul li span { display:none; position:absolute; top:20px; left:-20px; width:150px; text-align:center; }
+#header #menu ul li:hover span { display:inline; }
+*/

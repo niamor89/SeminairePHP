@@ -66,12 +66,12 @@ if (null != $out)
 					<div id="menu">
 						<nav>
 							<ul>
-								<li><img src=""/>XXXX<span class="title">Accueil</span></li>
-								<li><img src=""/>XXXX<span class="title">Nouvelle Partie</span></li>
-								<li><img src=""/>XXXX<span class="title">Tournois</span></li>
-								<li><img src=""/>XXXX<span class="title">Classement</span></li>
-								<li><img src=""/>XXXX<span class="title">Boutique</span></li>
-								<li><img src=""/>XXXX<span class="title">Acheter des SC</span></li>
+								<li><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></li>
+								<li><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></li>
+								<li><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></li>
+								<li><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></li>
+								<li><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></li>
+								<li><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></li>
 							</ul>
 						</nav>
 					</div>
@@ -82,7 +82,7 @@ if (null != $out)
 			</div>
 			<div class="clear"></div>
 			<div id="content">
-				<?php echo $out ?>
+				<?php echo render_action('session/get_client') ?>
 			</div>
 			<div class="clear"></div>
 			<div id="footer">
