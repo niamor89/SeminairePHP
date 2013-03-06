@@ -45,10 +45,10 @@
 			SC.ctx.strokeRect(150 +(i*32)+(i*10),516,32,32);
 		}
 		
-		// TOOL
+		// HAND
 		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
 		SC.ctx.font = '24px Calibri';
-		SC.ctx.fillText('Outil : ',422,538);
+		SC.ctx.fillText('Main : ',422,538);
 		SC.ctx.fillStyle = 'rgba(250,207,176,1)';
 		SC.ctx.strokeStyle = 'rgba(20,97,113,1)';
 		SC.ctx.fillRect(492,516,32,32);
