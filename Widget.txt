@@ -1,9 +1,16 @@
+Farah : Friends, Team
+RomainN : Shop, Currency
+Antoine : Website, User
+Ousmane : Tournament
+RomainT/Ruslan : Session
+
 User:
--log in
--log out
+-login
+-logout
 -edit
 -show
 -sign up
+-check_log
 
 
 Shop:
@@ -21,13 +28,11 @@ Session:
 -end
 
 Tournament:
--create team
--validate_member
+-add_team
 -validate_tournament
 -start
--join
--end
--scores
+-end (sert au serveur du jeu)
+-scores (action+view des stats)
 -leave
 -cancel (si la dernière équipe quitte)
 
@@ -46,11 +51,12 @@ Friends:
 -remove
 
 Currency:
--choose_pack
+-get
 -buy
 -revert
--confirm_buy
--confirm_revert
+-add
+-edit
+-remove
 
 Website:
 -contact
