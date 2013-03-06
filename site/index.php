@@ -20,7 +20,7 @@ function render_action($route) {
 }
 if($_SERVER['REQUEST_URI']=='/') {
 	header("Status: 303 See Other", false, 303);
-	header('Location : index/index');
+	header('Location : website/index');
 	exit();
 }
 
@@ -81,7 +81,7 @@ if (null != $out)
 			</div>
 			<div class="clear"></div>
 			<div id="content">
-				<?php echo render_action('index/index') ?>
+				<?php echo render_action('session/get_client') ?>
 			</div>
 			<div class="clear"></div>
 			<div id="footer">
