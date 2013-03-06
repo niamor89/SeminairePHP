@@ -1,6 +1,16 @@
 /**************** HEADER *********************/
 	
-	/* Icones du menu */
+	/* Logo */
+#header #logo {width:209px; height:80px; position:absolute;}
+	
+	/* Menu */
+#header #menu {width:600px; height:80px; position:absolute; left:209px; border-left:3px solid #7b5641; border-right:3px solid #7b5641}
+
+#header #menu_entries							{position:absolute; top:15px; left: 100px;}
+#header #menu_entries .menu_entry				{position:relative; display:inline; margin-left:20px;}
+#header #menu_entries .menu_entry:hover .title	{display:inline;}
+#header #menu_entries .menu_entry .title		{display:none; position:absolute; top:20px; left:7px; width:100px;}
+	
 #header #menu .menu_icon {width:30px; height:30px;}
 #header #menu #home {background:url(/assets/img/icones1.png) 0 0; outline:none;} 
 #header #menu #new_game {background:url(/assets/img/icones1.png) -210px 0; outline:none;} 
@@ -16,9 +26,5 @@
 #header #menu #shop:hover {background:url(/assets/img/icones1.png) -120px -30px; outline:none;} 
 #header #menu #buy:hover {background:url(/assets/img/icones1.png) -150px -30px; outline:none;}
 	
-/*
-#header #menu { width:600px; position:absolute; top:20px; left:212px;  }
-#header #menu ul li { display:inline; margin-left:10px; position:relative; }
-#header #menu ul li span { display:none; position:absolute; top:20px; left:-20px; width:150px; text-align:center; }
-#header #menu ul li:hover span { display:inline; }
-*/
+	/* Connexion */
+#header #connection {width:209px; height:80px; position:absolute; left:815px;}
