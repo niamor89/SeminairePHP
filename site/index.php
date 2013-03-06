@@ -49,7 +49,7 @@ if (null != $out)
 		<link href="/assets/styles/default/Ousmane.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/styles/default/Ruslan.css" rel="stylesheet" type="text/css" />
 		
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/assets/js/jquery.js"></script>
 		
 		<link rel="icon" type="image/png" href="/assets/default/img/favicon.ico" /> 
 		<!--[if IE]>
@@ -61,28 +61,26 @@ if (null != $out)
 			<div id="header">
 				<header>
 					<div id="logo">
-						
+						Logo div
 					</div>
 					<div id="menu">
-						<nav>
-							<ul>
-								<li><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></li>
-								<li><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></li>
-								<li><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></li>
-								<li><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></li>
-								<li><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></li>
-								<li><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></li>
-							</ul>
-						</nav>
+						<div id="menu_entries">
+								<div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div>
+								<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div>
+								<div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div>
+								<div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div>
+								<div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div>
+								<div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div>
+						</div>
 					</div>
 					<div id="connection">
-						
+						login div
 					</div>
 				</header>
 			</div>
 			<div class="clear"></div>
 			<div id="content">
-				<?php echo $out; ?>
+				<?php echo $out ?>
 			</div>
 			<div class="clear"></div>
 			<div id="footer">
