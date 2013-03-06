@@ -86,8 +86,10 @@
 		var c = map[0].length;
 		
 		for(i=0;i<l;i++)
-			for(j=0;j<c;j++)
-				SC.Can.drawSprite(SC.Img.tiles,map[i][j][0],map[i][j][1],j,i);
+			for(j=0;j<c;j++) {
+				SC.Can.drawSprite(SC.Img.tiles,map[i][j].t2x,map[i][j].t2y,j,i);
+				SC.Can.drawSprite(SC.Img.tiles,map[i][j].t1x,map[i][j].t1y,j,i);
+			}
 	};
 
 	/*SC.Can.drawPlayer = function () {
