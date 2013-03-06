@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="ISO-8859-1"> 
+        <link href="style/style.css" type="text/css" rel="stylesheet"/> 
+        <script type="text/javascript" src="script/script.js"></script> 
+        <title>Insert title here</title> 
+		<script>
+		var socket;
+
+		function init(){
+		  var host = "ws://localhost:12345/server.php";
+		  try{
+			socket = new WebSocket(host);
+			log('WebSocket - status '+socket.readyState);
+			socket.onopen    = function(msg){ log("Welcome - status "+this.readyState); };
+			socket.onmessage = function(msg){ log("Received: "+msg.data); };
+			socket.onclose   = function(msg){ log("Disconnected - status "+this.readyState); };
+			socket.onerror = function(e){} /*on traite les cas d'erreur*/
+		  }
+		  catch(ex){ log(ex); }
+		  $("msg").focus();
+		}
+
+		function send(){
+		  var txt,msg;
+		  txt = $("msg");
+		  msg = txt.value;
+		  if(!msg){ alert("Message can not be empty"); return; }
+		  txt.value="";
+		  txt.focus();
+		  try{ socket.send(msg); log('Sent: '+msg); } catch(ex){ log(ex); }
+		}
+		function quit(){
+		  log("Goodbye!");
+		  socket.close();
+		  socket=null;
+		}
+
+		// Utilities
+		function $(id){ return document.getElementById(id); }
+		function log(msg){ $("log").innerHTML+="<br>"+msg; }
+		function onkey(event){ if(event.keyCode==13){ send(); } }
+		</script>
+		</head> 
+	<body> 
+               <div class="sii-chat"> <-- conteneur du chat --> 
+                       <div>Pseudo : <input type="text" name="sii-chat-name" /><button class="sii-chat-login">Valider</button></div> <-- pseudo à saisir pour le chat --> 
+                       <div class="sii-chat-content"> <-- les messages apparaitront ici --> 
+                       </div> 
+                       <div> 
+                               <form class="sii-chat-form" onsubmit="return false;"> 
+                                       <input type="text" value="" name="sii-chat-message" disabled="disabled"/><-- saisie du message à saisir --> 
+                                       <button class="sii-chat-send" disabled="disabled">ok</button> <-- Bouton d'envoi du message saisi --> 
+                               </form> 
+                       </div> 
+                       <div class="console"></div> 
+               </div> 
+       <script type="text/javascript" src="script/websocket.js"></script> 
+	</body> 
+</html> 

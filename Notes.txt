@@ -1,0 +1,1 @@
+<div id="info_bulle"> -> au survol affiche infos de l'inventaire
