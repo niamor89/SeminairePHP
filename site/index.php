@@ -26,7 +26,6 @@ if($_SERVER['REQUEST_URI']=='/') {
 }
 
 $out = render_action($_GET['action']);
-	
 
 if (null != $out)
 {
@@ -65,16 +64,16 @@ if (null != $out)
 					</div>
 					<div id="menu">
 						<div id="menu_entries">
-								<div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div>
 						</div>
 					</div>
 					<div id="connection">
-						login div
+						<?php  echo render_action("user/check_log") ?>
 					</div>
 				</header>
 			</div>
