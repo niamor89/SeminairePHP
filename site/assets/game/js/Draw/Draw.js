@@ -4,15 +4,17 @@
 	SC.Can.draw = function () {
 		
 		SC.ctx.clearRect(0,0,SC.can.height,SC.can.width);
+		SC.ctx.fillStyle = 'rgba(255,255,255,1)';
+		SC.ctx.fillRect(0,0,800,550);
 		SC.Can.drawMap();
 		SC.Can.drawMenu();
 		/*SC.Can.drawRessources();
 		SC.Can.drawHouses();
 		
 		SC.Can.drawPlayer();*/
-		SC.ctx.fillStyle = 'rgba(255,20,20,0.6)';
+		SC.ctx.fillStyle = 'rgba(255,255,255,0.6)';
 		SC.ctx.font = 'bold 18px Calibri';
-		SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',720,20);
+		SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',20,20);
 		
 		//TEST					
 		/*SC.Can.Anim.walk.animate(SC.Can.Anim.timer.getSeconds());
@@ -31,8 +33,6 @@
 		SC.ctx.fillStyle = 'rgba(173,134,105,1)';
 		SC.ctx.fillRect(0,512,800,38);
 		
-		
-		
 		// INVENTORY
 		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
 		SC.ctx.font = '24px Calibri';
@@ -40,8 +40,8 @@
 		SC.ctx.fillStyle = 'rgba(250,207,176,1)';
 		SC.ctx.strokeStyle = 'rgba(20,97,113,1)';
 		for(var i=0;i<6;i++) {
-			SC.ctx.fillRect(150 +(i*32)+(i*10),515,32,32);
-			SC.ctx.strokeRect(150 +(i*32)+(i*10),515,32,32);
+			SC.ctx.fillRect(150 +(i*32)+(i*10),516,32,32);
+			SC.ctx.strokeRect(150 +(i*32)+(i*10),516,32,32);
 		}
 		
 		// TOOL
@@ -50,8 +50,8 @@
 		SC.ctx.fillText('Outil : ',422,538);
 		SC.ctx.fillStyle = 'rgba(250,207,176,1)';
 		SC.ctx.strokeStyle = 'rgba(20,97,113,1)';
-		SC.ctx.fillRect(492,515,32,32);
-		SC.ctx.strokeRect(492,515,32,32);
+		SC.ctx.fillRect(492,516,32,32);
+		SC.ctx.strokeRect(492,516,32,32);
 		
 		//LIFE
 		SC.Can.drawSprite(SC.Img.items,5,76,17,16);
