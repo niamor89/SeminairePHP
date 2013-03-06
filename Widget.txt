@@ -21,11 +21,13 @@ Session:
 -end
 
 Tournament:
--new
+-create team
+-validate_member
+-validate_tournament
 -start
+-join
 -end
 -scores
--join
 -leave
 -cancel (si la dernière équipe quitte)
 
@@ -39,6 +41,7 @@ Team:
 -leave queue
 
 Friends:
+-get
 -add
 -remove
 
