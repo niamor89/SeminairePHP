@@ -13,7 +13,7 @@
 	SC.Img.load_images = function (i) {
 		if(i>=imgs.length) { SC.GL.Game_Loop(); return; }
 		var img = new Image();
-		img.src = 'assets/img/'+imgs[i];
+		img.src = '/assets/img/'+imgs[i];
 		SC.Img.preload.push(img);
 		img.onload = function () { SC.Img.load_images(i+1); };
 		return;				
@@ -23,22 +23,18 @@
 
 	// Précharger les Sprites
 	// /!\Event : SC.Img.sprites_onload
-	SC.Img.load_sprites = function () {
+	SC.Img.load_sprites = function (func_onload) {
 		SC.Img.sprites = new Image();
-		SC.Img.sprites.src = 'assets/game/img/sprites.png';
-		SC.Img.sprites.onload = function () {
-			if(SC.Img.sprites_onload) SC.Img.sprites_onload(); //Execute le listener de l'event si tel existe
-		};
+		SC.Img.sprites.src = '/assets/game/img/sprites.png';
+		SC.Img.sprites.onload = func_onload();
 	};
 	
 	// Précharger les Tiles
 	// /!\Event : SC.Img.tiles_onload
-	SC.Img.load_tiles = function () {
+	SC.Img.load_tiles = function (func_onload) {
 		SC.Img.tiles = new Image();
-		SC.Img.tiles.src = 'assets/game/img/tiles.png';
-		SC.Img.tiles.onload = function () {
-			if(SC.Img.tiles_onload) SC.Img.tiles_onload(); //Execute le listener de l'event si tel existe
-		};
+		SC.Img.tiles.src = '/assets/game/img/tiles.png';
+		SC.Img.tiles.onload = func_onload();
 	};
 	
 })(SC);

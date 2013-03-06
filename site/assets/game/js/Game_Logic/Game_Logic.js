@@ -4,7 +4,7 @@
 		
 		SC.Can.draw();
 		
-		var t = setTimeout('Game_Loop()',15);
+		var t = setTimeout('SC.GL.Game_Loop()',30);
 	};
 
 	SC.GL.move = function (dir) { //dir : 1 = top, 2 = right, 3 = bottom, 4 = left	
