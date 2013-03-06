@@ -15,8 +15,9 @@
 		//SC.Img.load_images(0);
 		SC.Img.load_sprites(function () {
 			SC.Img.load_tiles(function () {
-				// INITIALISATION DU FRAME TIMER
-				SC.Can.draw();
+				SC.Img.load_items(function () {
+					SC.Can.draw();
+				});
 			});
 		});
 		

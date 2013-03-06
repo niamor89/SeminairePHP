@@ -6,5 +6,5 @@
 		<script src="/assets/game/js/Draw/Draw.js"></script>
 		<script src="/assets/game/js/Draw/Animation.js"></script>
 	
-		<canvas id="session_canvas" height = "512px" width = "800px"> </canvas>
+		<canvas id="session_canvas" height = "550px" width = "800px"> </canvas>
 		

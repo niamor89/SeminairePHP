@@ -15,9 +15,11 @@
 		//SC.Img.load_images(0);
 		SC.Img.load_sprites(function () {
 			SC.Img.load_tiles(function () {
-				// INITIALISATION DU FRAME TIMER
-				SC.Can.Anim.timer = new SC.Can.Anim.FrameTimer();
-				SC.GL.Game_Loop();
+				SC.Img.load_items(function () {
+					// INITIALISATION DU FRAME TIMER
+					SC.Can.Anim.timer = new SC.Can.Anim.FrameTimer();
+					SC.GL.Game_Loop();
+				});
 			});
 		});
 		

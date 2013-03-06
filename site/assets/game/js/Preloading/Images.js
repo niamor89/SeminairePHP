@@ -19,10 +19,7 @@
 		return;				
 	};
 
-	SC.Img.sprites = new Array(); // L'image des sprites
-
 	// Précharger les Sprites
-	// /!\Event : SC.Img.sprites_onload
 	SC.Img.load_sprites = function (func_onload) {
 		SC.Img.sprites = new Image();
 		SC.Img.sprites.src = '/assets/game/img/sprites.png';
@@ -30,11 +27,17 @@
 	};
 	
 	// Précharger les Tiles
-	// /!\Event : SC.Img.tiles_onload
 	SC.Img.load_tiles = function (func_onload) {
 		SC.Img.tiles = new Image();
 		SC.Img.tiles.src = '/assets/game/img/tiles.png';
 		SC.Img.tiles.onload = func_onload();
+	};
+	
+	// Précharger les Items
+	SC.Img.load_items = function (func_onload) {
+		SC.Img.items = new Image();
+		SC.Img.items.src = '/assets/game/img/items.png';
+		SC.Img.items.onload = func_onload();
 	};
 	
 })(SC);

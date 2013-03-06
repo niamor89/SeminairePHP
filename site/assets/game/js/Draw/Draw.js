@@ -3,24 +3,79 @@
 	
 	SC.Can.draw = function () {
 		
-		SC.ctx.clearRect(0,0,800,800);
+		SC.ctx.clearRect(0,0,SC.can.height,SC.can.width);
 		SC.Can.drawMap();
+		SC.Can.drawMenu();
 		/*SC.Can.drawRessources();
 		SC.Can.drawHouses();
 		
 		SC.Can.drawPlayer();*/
-		
-		SC.ctx.fillText(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ),20,20);
+		SC.ctx.fillStyle = 'rgba(255,20,20,0.6)';
+		SC.ctx.font = 'bold 18px Calibri';
+		SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',720,20);
 		
 		//TEST					
-		SC.Can.Anim.walk.animate(SC.Can.Anim.timer.getSeconds());
+		/*SC.Can.Anim.walk.animate(SC.Can.Anim.timer.getSeconds());
 		var frame = SC.Can.Anim.walk.getSprite();
 		SC.Can.drawSprite(SC.Img.sprites,frame,1,5,5);
-		SC.Can.Anim.timer.tick();
+		SC.Can.drawSprite(SC.Img.items,1,1,5,6);
+		SC.Can.Anim.timer.tick();*/
 	};
 	
 	SC.Can.drawSprite = function (img,srcX,srcY,ctxX,ctxY) {
 		SC.ctx.drawImage(img, srcX*32, srcY*32, 32, 32, ctxX*32, ctxY*32, 32, 32);
+	};
+	
+	SC.Can.drawMenu = function () {		
+		// BACKGROUND
+		SC.ctx.fillStyle = 'rgba(173,134,105,1)';
+		SC.ctx.fillRect(0,512,800,38);
+		
+		
+		
+		// INVENTORY
+		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
+		SC.ctx.font = '24px Calibri';
+		SC.ctx.fillText('Inventaire : ',20,538);
+		SC.ctx.fillStyle = 'rgba(250,207,176,1)';
+		SC.ctx.strokeStyle = 'rgba(20,97,113,1)';
+		for(var i=0;i<6;i++) {
+			SC.ctx.fillRect(150 +(i*32)+(i*10),515,32,32);
+			SC.ctx.strokeRect(150 +(i*32)+(i*10),515,32,32);
+		}
+		
+		// TOOL
+		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
+		SC.ctx.font = '24px Calibri';
+		SC.ctx.fillText('Outil : ',422,538);
+		SC.ctx.fillStyle = 'rgba(250,207,176,1)';
+		SC.ctx.strokeStyle = 'rgba(20,97,113,1)';
+		SC.ctx.fillRect(492,515,32,32);
+		SC.ctx.strokeRect(492,515,32,32);
+		
+		//LIFE
+		SC.Can.drawSprite(SC.Img.items,5,76,17,16);
+		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
+		SC.ctx.font = '24px Calibri';
+		SC.ctx.fillText('0',578,538); // LIFE POINTS
+		
+		//RESTLESSNESS
+		SC.Can.drawSprite(SC.Img.items,0,35,19,16.1);
+		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
+		SC.ctx.font = '24px Calibri';
+		SC.ctx.fillText('0',642,538); // LIFE POINTS
+		
+		//HUNGER
+		SC.Can.drawSprite(SC.Img.items,4,76,21,16);
+		SC.ctx.fillStyle = 'rgba(5,89,97,1)';
+		SC.ctx.font = '24px Calibri';
+		SC.ctx.fillText('0',706,538); // LIFE POINTS
+		
+		// SEPARATION
+		SC.ctx.fillStyle = 'rgba(97,69,49,0.7)';
+		SC.ctx.fillRect(0,510,800,4);
+		
+		
 	};
 
 	SC.Can.drawMap = function () {

@@ -17,8 +17,10 @@
 	};
 
 	SC.Can.drawMap = function () {
-		SC.can.height = SC.Img.tiles.height;
-		SC.can.width = SC.Img.tiles.width;
+		var img = SC.Img.items; //<<====== CHANGE HERE : sprites,items,tiles
+	
+		SC.can.height = img.height;
+		SC.can.width = img.width;
 		var i,j;
 		
 		var l = SC.can.height/2;
@@ -26,9 +28,10 @@
 		
 		for(i=0;i<l;i++) {
 			for(j=0;j<c;j++) {
-				SC.Can.drawSprite(SC.Img.tiles,j,i,j,i);
+				SC.Can.drawSprite(img,j,i,j,i);
 			}
 		}
+		SC.ctx.fillStyle='rgba(250,10,10,1)';
 		for(i=0;i<l;i++) {
 			for(j=0;j<c;j++) {
 				SC.ctx.fillRect(i*32,j*32,1,SC.can.width);

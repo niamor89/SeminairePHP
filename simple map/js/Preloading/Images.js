@@ -37,4 +37,11 @@
 		SC.Img.tiles.onload = func_onload();
 	};
 	
+	// Précharger les Items
+	SC.Img.load_items = function (func_onload) {
+		SC.Img.items = new Image();
+		SC.Img.items.src = 'items.png';
+		SC.Img.items.onload = func_onload();
+	};
+	
 })(SC);
