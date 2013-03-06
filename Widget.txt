@@ -46,9 +46,11 @@ Friends:
 -remove
 
 Currency:
+-choose_pack
 -buy
 -revert
--confirm
+-confirm_buy
+-confirm_revert
 
 Website:
 -contact
