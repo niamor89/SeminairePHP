@@ -16,7 +16,6 @@
 		SC.Can.Anim.walk.animate(SC.Can.Anim.timer.getSeconds());
 		var frame = SC.Can.Anim.walk.getSprite();
 		SC.Can.drawSprite(SC.Img.sprites,frame,1,5,5);
-		console.log(frame +'\n' + SC.Can.Anim.timer.getSeconds());
 		SC.Can.Anim.timer.tick();
 	};
 	
