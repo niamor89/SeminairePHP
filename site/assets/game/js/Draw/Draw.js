@@ -6,7 +6,8 @@
 		SC.ctx.clearRect(0,0,SC.can.height,SC.can.width);
 		SC.ctx.fillStyle = 'rgba(255,255,255,1)';
 		SC.ctx.fillRect(0,0,800,550);
-		SC.Can.drawMap();
+		SC.Can.drawSprite(SC.Img.tiles,16,3,15,9);	
+		SC.Can.drawMap();		
 		SC.Can.drawMenu();
 		/*SC.Can.drawRessources();
 		SC.Can.drawHouses();
