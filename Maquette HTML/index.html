@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="fr-FR">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Survival Camp</title>
+		<meta name="keywords" content="Survival Camp, jeu, coopération" />
+		<meta name="description" content="Survival Camp : Jouez en coopération avec vos amis et participez aux tournois pour gagner de l'argent !" />		
+		<link href="assets/styles/default/style.css" rel="stylesheet" type="text/css" />
+		<link href="assets/styles/default/Farah.css" rel="stylesheet" type="text/css" />
+		<link href="assets/styles/default/RomainN.css" rel="stylesheet" type="text/css" />
+		<link href="assets/styles/default/RomainT.css" rel="stylesheet" type="text/css" />
+		<link href="assets/styles/default/Antoine.css" rel="stylesheet" type="text/css" />
+		<link href="assets/styles/default/Ousmane.css" rel="stylesheet" type="text/css" />
+		<link href="assets/styles/default/Ruslan.css" rel="stylesheet" type="text/css" />		
+		<link rel="icon" type="image/png" href="assets/default/img/favicon.ico" /> 
+	</head>
+	<body>
+		<div id="page">
+			<div id="header">
+				<header>
+					<div id="logo">
+						<img class="logo" ALIGN="center" src="assets/img/Feu de camp.png"/>
+					</div>
+					<div id="menu">
+						<div id="menu_entries">
+							<div class="menu_entry"><img class="menu_icon" id="home"		src="assets/img/std.png"/><span class="title">Accueil</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="new_game"	src="assets/img/std.png"/><span class="title">Nouvelle Partie</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="tournament"	src="assets/img/std.png"/><span class="title">Tournois</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="classment"	src="assets/img/std.png"/><span class="title">Classement</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="shop"		src="assets/img/std.png"/><span class="title">Boutique</span></div>
+							<div class="menu_entry"><img class="menu_icon" id="buy"			src="assets/img/std.png"/><span class="title">Acheter des SC</span></div>
+						</div>
+					</div>
+					<div id="connection">
+						<div id="connection_title">
+							CONNEXION
+						</div>
+						<form id ="connection_form">
+							<div id ="connection_top">
+								<input type="text" name="f_login_pseudo" value="Login"/>
+								<input type="password" name="f_login_password" value="Password"/>
+							</div>
+							<div id ="connection_bottom">
+								<input type="submit" value="Envoyer" />
+							</div>
+						</form>
+					</div>
+				</header>
+			</div>
+			<div class="clear"></div>
+			<div id="content">
+				<div id="content_title">
+					INSCRIPTION
+				</div>
+				<form>
+					<div id="inscription_left">	
+						<div >
+							<label for="prenom">Prénom :</label>
+						</div>
+						<div >
+							<input type="text" name="prenom" id="prenom" class="signup"/>
+						</div><br />
+						<div >
+							<label for="nom">Nom :</label>
+						</div>
+						<div >
+							<input type="text" name="nom" id="nom" class="signup"/>
+						</div><br />
+						<div >
+							<label for="mail">Mail :</label>
+						</div>
+						<div >
+							<input type="email" name="mail" id="mail" required/>
+						</div><br />
+						<div >
+							<label for="phone">Téléphone :</label>
+						</div>
+						<div >
+							<input type="tel" name="phone" id="phone" />
+						</div><br />
+						<div >
+							<label for="adress">Adresse :</label>
+						</div>
+						<div >
+							<input type="text" name="adress" id="adress" />
+						</div><br />
+						<div >
+							<label for="city">Ville :</label>
+						</div>
+						<div >
+							<input type="text" name="city" id="city" />
+						</div><br />
+						<div >
+							<label for="birthday">Date de naissance :</label>
+						</div>
+						<div >
+							<input type="date" name="birthday" id="birthday" />
+						</div><br />
+					</div>							
+					<div id="inscription_right">		
+						<div >
+							<label for="pseudo">Pseudo :</label>
+						</div>
+						<div >
+							<input type="text" name="pseudo" id="pseudo" class="signup" autofocus/>
+						</div><br />
+						<div >
+							<label for="pass">Mot de passe :</label>
+						</div>
+						<div >
+							<input type="password" name="pass" id="pass" class="signup" required/>
+						</div><br />
+						<div >
+							<label for="confirm_pass">Confirmer mot de passe :</label>
+						</div>
+						<div >
+							<input type="password" name="confirm_pass" id="confirm_pass" class="signup" required/>
+						</div><br />
+					</div>		
+					<div id="inscription_bottom">
+						<input type="submit" value="Envoyer" />
+					</div>				        
+				</form>
+			</div>
+			<div class="clear"></div>
+			<div id="footer">
+				<footer>
+					Copyleft &#169; Survival Camp 2013
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>
