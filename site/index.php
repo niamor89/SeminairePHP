@@ -1,6 +1,4 @@
 <?php 
-include __DIR__.'/app/dal/dal.php';
-
 $context = array();
 
 function render_action($route) {
@@ -26,6 +24,7 @@ if($_SERVER['REQUEST_URI']=='/') {
 	exit();
 }
 
+include __DIR__.'/app/dal/dal.php';
 $out = render_action($_GET['action']);
 
 if (null != $out)

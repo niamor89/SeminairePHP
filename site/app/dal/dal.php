@@ -10,7 +10,7 @@
 	
 	- PDO_Err() AFFICHE LES ERREURS
 	- PDO_Qry() AFFICHE LES REQUETES
-*/
+*/echo 'DAL';
 
 // CREATION DE LA CONNEXION
 $pdo=null;

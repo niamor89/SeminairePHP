@@ -7,7 +7,7 @@
 	<script src="/assets/game/js/Draw/Animation.js"></script>
 
 	<canvas id="session_canvas" height = "550px" width = "800px"> </canvas>
-
+	<?php insertCarte('c','c'); ?>
 	<br/>
 	<br/>
 	<br/>
