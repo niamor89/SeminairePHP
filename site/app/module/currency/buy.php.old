@@ -1,0 +1,82 @@
+<?php
+
+	$context["title"] = "Acheter un pack";
+	$display_currency_buy_success = 0;
+	$display_currency_buy_failure = 0;
+	$display_currency_buy_paypalform = 0;
+	
+	/*	Insert code for checking user authentication here.
+	**	output required:
+	**		$successful_login = 0 or 1
+	*/
+	
+	//Assume we logged in
+	$successful_login = 1;
+	
+	
+	
+	//Check wether we need to display the paypal div or to parse the paypal result
+	
+	if (isset($_GET["id"])) {
+	
+		//id of the pack to buy found
+		
+		if (isset($_POST["salestatus"])) {
+		
+			//Paypal form returned and id of the pack found
+			
+			/*	Insert code here to buy the pack
+			**	input provided:
+			**		$_GET["id"]
+			**	output required:
+			**		$currency_buy_success = 0 or 1
+			*/	
+			
+			//Admit the success
+			$currency_buy_success = 1;
+			
+			if ($currency_buy_success == 1) {
+				$display_currency_buy_success = 1;
+			}else{
+				$display_currency_buy_failure = 1;
+			}
+			
+		} else {
+		
+			//Paypal form not returned so display it
+			
+			/*	Insert code to get informations about the pak to buy
+			**	provided input:
+			**		$_GET["id"]
+			**	required output:
+			**		$currency_buy_packname
+			**		$currency_buy_packprice
+			**		$currency_buy_packamount
+			*/
+			
+			
+			//Assume we got those informations
+			$currency_buy_packname = "Pack X";
+			$currency_buy_packprice = "1234 €";
+			$currency_buy_packamount = "5000 SC";
+			$display_currency_buy_paypalform = 1;
+		
+		}
+			
+	} else {
+		
+		//We didn't found the id of the pack to buy in the $_GET
+			
+		$error_message = "L'identifiant du pack a acheter n'a pas ete trouve.";
+		
+		/*	Error message here
+		**	provided input:
+		**		$error_message
+		*/
+		
+		$display_currency_buy_failure = 1;
+		echo $error_message;
+			
+	}
+	
+?>

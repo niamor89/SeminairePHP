@@ -32,7 +32,7 @@
 		} else {
 		
 			//A special view has been asked
-			echo render_action("currency/".$_POST["currency_action"]);
+			header("Location: /currency/".$_POST["currency_action"]);
 			
 		}
 	}
