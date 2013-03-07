@@ -6,4 +6,16 @@
 Start Session
 </div>
 
+<?php
+/*
+if($time_left<=0 && $time_left>-10000000)
+{
+show button
+}
+else
+{
+dont show button
+}
+*/
+?>
 <form> <input type="button" class="button_wooden" value="Start Session" /> </form>

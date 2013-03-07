@@ -67,7 +67,7 @@ Payment Type :
 					<td align="right">Date Of Birth (Card Holder) :</td> <td width="20px"></td> <td align="left"> <input type="text" name="tour_card_holder_date_day" size="1"> <input type="text" name="tour_card_holder_date_month" size="1"> <input type="text" name="tour_card_holder_date_year" size="1"> </td>
 				</tr>
 				<tr>
-					<td></td> <td width="20px"></td> <td align="right"><input type ="submit" name ="tour_validate_payment" value="Pay"></td>
+					<td></td> <td width="20px"></td> <td align="right"> <input type ="submit" name ="tour_validate_payment" value="Pay"></td>
 				</tr>
 			</table>
 		
@@ -75,4 +75,11 @@ Payment Type :
 
 <?php			
 	}
+	else if($tour_payment_type == "paypal")
+	{
+		echo"</br>Normal Paypal information";?>
+		<form method="post" action="/tournament/validate_team">
+		<input type ="submit" name ="tour_validate_payment" value="Pay">
+		</form>
+	<?php }
 ?>

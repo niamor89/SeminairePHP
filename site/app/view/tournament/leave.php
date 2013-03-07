@@ -1,1 +1,1 @@
-You have left
+You are no longer in this tournament.
