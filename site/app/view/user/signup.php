@@ -1,4 +1,4 @@
-﻿<form method="post" action="traitement.php">
+﻿<form method="post" action="create_user">
 
 		<div class=left>
 			<label for="pseudo">Pseudo :</label>
@@ -81,7 +81,7 @@
 		
 		<br />
 		<div>
-			<input type="submit" value="Envoyer" />
+			<input type="submit" value="Envoyer" class=button_wooden/>
 		</div>
         
 </form>
