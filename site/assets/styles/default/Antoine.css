@@ -1,0 +1,79 @@
+/**************** HEADER *********************/
+	
+	/* Logo */
+#header #logo {width:209px; height:80px; position:absolute;}
+	
+	/* Menu */
+#header #menu {width:600px; height:80px; position:absolute; left:209px; border-left:3px solid #7b5641; border-right:3px solid #7b5641}
+
+#header #menu_entries							{position:absolute; top:15px; left: 100px;}
+#header #menu_entries .menu_entry				{position:relative; display:inline; margin-left:20px;}
+#header #menu_entries .menu_entry:hover .title	{display:inline;}
+#header #menu_entries .menu_entry .title		{display:none; position:absolute; top:20px; left:7px; width:100px;}
+	
+#header #menu .menu_icon {width:30px; height:30px;}
+#header #menu #home {background:url(/assets/img/icones1.png) 0 0; outline:none;} 
+#header #menu #new_game {background:url(/assets/img/icones1.png) -210px 0; outline:none;} 
+#header #menu #tournament {background:url(/assets/img/icones1.png) -240px 0; outline:none;} 
+#header #menu #classment {background:url(/assets/img/icones1.png) -90px 0; outline:none;} 
+#header #menu #shop {background:url(/assets/img/icones1.png) -120px 0; outline:none;} 
+#header #menu #buy {background:url(/assets/img/icones1.png) -150px 0; outline:none;}
+
+#header #menu #home:hover {background:url(/assets/img/icones1.png) 0 -30px; outline:none;} 
+#header #menu #new_game:hover {background:url(/assets/img/icones1.png) -210px -30px; outline:none;} 
+#header #menu #tournament:hover {background:url(/assets/img/icones1.png) -240px -30px; outline:none;} 
+#header #menu #classment:hover {background:url(/assets/img/icones1.png) -90px -30px; outline:none;} 
+#header #menu #shop:hover {background:url(/assets/img/icones1.png) -120px -30px; outline:none;} 
+#header #menu #buy:hover {background:url(/assets/img/icones1.png) -150px -30px; outline:none;}
+	
+	/* Connexion */
+#header #connection {width:209px; height:80px; position:absolute; left:815px;}
+
+
+
+/* Signup */
+
+
+
+/* Index */
+
+#index_main {
+	width:1000px;
+}
+#index_menu {
+	border:2px solid red;
+	padding:10px;
+	width:200px;
+	float:left;
+}
+#index_menu img {
+	display:block;
+	margin-bottom:10px;
+}
+#index_zoom {
+	width:700px;
+	float:left;
+	position:relative;
+}
+#index_zoom img {
+	position:absolute;
+	left:100px
+}
+#index_description
+{
+	margin-top: 500px;
+}
+
+
+
+/* Contact */
+
+#contact
+{
+border : 1px solid rgba(173,134,105,1);
+	float:left
+}
+#contact_coordonne
+{
+float:left
+}
