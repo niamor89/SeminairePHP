@@ -7,6 +7,7 @@ function render_action($route) {
 	$actionFile = __DIR__.'/app/module/'.$route.'.php';	
 	if (file_exists($actionFile))
 		include ($actionFile);
+	
 	$viewFile = __DIR__.'/app/view/'.$route.'.php';
 	$out = null;
 	if (file_exists($viewFile) && !isset($context['no_render']))
@@ -16,11 +17,16 @@ function render_action($route) {
   		$out = ob_get_contents();
   		ob_end_clean();
 	}
+	if(!file_exists($actionFile) && !file_exists($viewFile)) {
+		header("Status: 303 See Other", false, 303);
+		header('Location : /website/404');
+		exit();
+	}
  	return $out;
 }
 if($_SERVER['REQUEST_URI']=='/') {
 	header("Status: 303 See Other", false, 303);
-	header('Location : website/index');
+	header('Location : /website/index');
 	exit();
 }
 
@@ -65,12 +71,12 @@ if (null != $out)
 					<div id="menu">
 						<nav>
 							<div id="menu_entries">
-								<div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div>
-								<div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div>
+								<a href="/website/index"><div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div></a>
+								<a href="/session/get_client">	<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div></a>
+								<a href="/tournament/show"><div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div></a>
+								<a href="/tournament/scores"><div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div></a>
+								<a href="/shop/get"><div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div></a>
+								<a href="/currency/buy"><div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div></a>
 							</div>
 						</nav>
 					</div>
