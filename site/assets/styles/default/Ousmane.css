@@ -7,6 +7,16 @@ width:800px;
 background:grey;
 }
 
+div.tour_list_participants
+{
+border-style:solid;
+border-width:1px;
+border-color:black;
+position:relative;
+width:700px;
+left:150px;
+}
+
 div.tour_score
 {
 border-style:solid;
@@ -16,6 +26,16 @@ position:relative;
 width:700px;
 left:150px;
 height:300px;
+}
+
+div.tour_leave
+{
+border-style:solid;
+border-width:1px;
+border-color:black;
+position:relative;
+width:700px;
+left:150px;
 }
 
 .button_wooden{
@@ -37,7 +57,8 @@ height:300px;
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #522e02;
+	text-shadow:0px 1px 0px #522e02; 
+	cursor:pointer;
 }
 
 .button_wooden:hover{

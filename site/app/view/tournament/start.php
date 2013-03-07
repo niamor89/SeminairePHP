@@ -18,4 +18,4 @@ dont show button
 }
 */
 ?>
-<form> <input type="button" class="button_wooden" value="Start Session" /> </form>
+<form> <input type="button" class="button_wooden" name="start session" value="Start Session" /> </form>
