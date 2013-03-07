@@ -1,7 +1,7 @@
 <div id="session_loading"><img src="/assets/img/loading.gif"/><br/>Loading ...</div>
 <div id="session">
 	<div id="session_start" class="button_wooden">
-		Nouvelle partie
+		Nouvelle partie/Rejoindre
 	</div>
 </div>
 <script>
@@ -16,9 +16,9 @@
 				if(!data)
 					var t = setTimeout('server_alive();',1000);
 				else
-					alert('Serveur en route');
+					document.location.href='/session/get_client&sess='+session_nb;
 			else
-				alert('Serveur injoignable');
+				{ alert('Serveur injoignable'); document.location.href='/session/start'; }
 		});
 	}
 	
