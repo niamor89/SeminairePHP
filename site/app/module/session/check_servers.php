@@ -1,30 +1,33 @@
 <?php 
 	//Va vérifier depuis les PID de la BDD que les serveurs tournent
+	
+	$cmd=__DIR__.'\..\..\game_server\tasklist.exe /nh /fo csv ';
+	$h=popen($cmd,"r");
+	$read='';
+	while (!feof($h))$read .= fread($h, 2096);
+	$output = preg_split("/\n/", $read);
+	
 	$servers = GetArray('SELECT * FROM t_server;');
+	
+	$found=0;
 	foreach($servers as $serv)
 	{
-		$cmd='';
-		echo 'Checking : '.$serv['pid_server'].'<br/>';
-		echo 'CMD : '.
-			($cmd=__DIR__.'\..\..\game_server\tasklist.exe /nh /fo csv ')
-			.'<br/>';
-			
-		$h=popen($cmd,"r");
-		$read='';
-		while (!feof($h))$read .= fread($h, 2096);
-		
-		//STOOCKER LES SERVEURS DANS UN TABLEAU (fait) ne parcourir les processus qu'ne fois !
-		
-		$output = preg_split("/\n/", $read);
-		
-		$found=false;
-		foreach($output as $line) 
+		$alive=0;
+		foreach($output as $line)
 		{
 			$l=preg_split("/,/",$line);
-			if(count($l)>1 && substr($l[1],1,-1)==$serv['pid_server']) 
-				{$found=true; break;}
+			if(count($l)>1 && substr($l[1],1,-1)==$serv['pid_server']) {
+				//echo substr($l[1],1,-1).'==';
+				$alive=1; 
+				break;
+			}
 		}
-		if($found) echo 'foud';
-		else echo 'not found';	
-		pclose($h);
+		if(!$alive) ExecSQL('DELETE FROM t_server WHERE pid_server='.$serv['pid_server'].';');
+		if(isset($_GET['alive']) && $_GET['alive']==$serv['id_partie'] && $found=1) { echo $alive; break; }
+		//echo $serv['pid_server'].':'.$alive.'<br/>';
 	}
+	if(isset($_GET['alive']) && !$found) { echo $found; }
+	
+	pclose($h);
+	
+	
