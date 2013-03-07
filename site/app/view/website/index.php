@@ -27,20 +27,22 @@
 -->
 
 <script>
-				var assoc = [['/assets/img/map_mini.png','/assets/img/map.png'],
-						['/assets/img/map2_mini.png','/assets/img/map2.png']
-						['/assets/img/map3_mini.png','/assets/img/map3.png']];
+	var index_assoc = [['/assets/img/map_mini.png','/assets/img/map.png'],
+			['/assets/img/map2_mini.png','/assets/img/map2.png'],
+			['/assets/img/map3_mini.png','/assets/img/map3.png']];
 	$(function(){
-		$('#index_zoom img').fadeOut(1);
-		$('#index_menu img').on('click',function(){
-			var j;
-			for(j=0;j<assoc.length;j++)
-				if(assoc[j][0]==$(this).attr('src'))
-				{
-					$('#index_zoom img').fadeOut();
-					$('#index_zoom img[src="'+assoc[j][1]+'"]').fadeIn(1000);
-					break;
-				}
+		$('#index_zoom img:gt(0)').fadeOut();
+		$('#index_menu img').each(function() {
+			$(this).on('click',function(){
+				var j;
+				for(j=0;j<index_assoc.length;j++)
+					if(index_assoc[j][0]==$(this).attr('src'))
+					{
+						$('#index_zoom img').fadeOut();
+						$('#index_zoom img[src="'+index_assoc[j][1]+'"]').fadeIn(1000);
+						break;
+					}
+			});
 		});
 		
 	});
@@ -61,6 +63,9 @@
 
 <div>
 	<p id="index_description">
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
+		<i>Survival Camp</i> est un jeu de survie en temps réel. <br/><br/>
+		<i>Survival Camp</i> se positionne auprès des joueurs à la recherche d'un jeu original, coopératif et  accessible depuis un navigateur. Il permet par ailleurs aux joueurs de gagner de l'argent en participant aux tournois.<br/><br/>
+		<i>Survival Camp</i> se déroule sur une carte dédié à une équipe de 5 personnes. Cette équipe devra s'organiser pour que tous les membres puissent survivre dans un milieu hostile. Il leur faudra gérer, la faim, la maladie et l'état physiologique. Ils ont à leurs dispositions différentes ressources qui leur permettront d'une part : construire des bâtiments nécessaires à l'avancement dans le jeu, d'autre part : fabriquer les outils et objets nécessaires à la survie.<br/><br/>
+		Tentez l'aventure avec vos amis ! Participez aux tournois et gagnez de l'argent !
 	</p>
 </div>

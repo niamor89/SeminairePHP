@@ -76,7 +76,7 @@ if (null != $out)
 								<a href="/tournament/show"><div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div></a>
 								<a href="/tournament/scores"><div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div></a>
 								<a href="/shop/get"><div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div></a>
-								<a href="/currency/buy"><div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div></a>
+								<a href="/currency/get"><div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div></a>
 							</div>
 						</nav>
 					</div>

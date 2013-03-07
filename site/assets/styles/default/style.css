@@ -92,7 +92,7 @@ body { color:#FFF;}
 #header #menu ul li:hover .title { display:inline; }*/
 
 /**************** CONTENT ********************/
-#content { width:1014px; text-align:center; }
+#content { width:1014px;}
 
 /**************** FOOTER *********************/
 #footer {  width:1014px; text-align:center; }
