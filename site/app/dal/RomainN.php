@@ -31,6 +31,7 @@
 		return "
 		<div class='paypal_pseudo'><p>Numero de compte PayPal: <input type='text' name='input1'/></div>
 		<div class='paypal_pass'><p>Mot de passe: <input type='password' name='input2'/></div>
+		<input type='submit' value='Ok'/>
 		";
 	}
 	

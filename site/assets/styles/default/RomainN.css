@@ -7,55 +7,48 @@
 	/* Menu */
 #header #menu {width:600px; height:80px; position:absolute; left:209px; /*border-left:3px solid #7b5641; border-right:3px solid #7b5641*/}
 
-#header #menu_entries {
-	position:absolute;
-	top:20px;
-	bottom:20px;
-	left: 140px;
-	right:140px;
-}
+#header #menu_entries {position:absolute;top:20px;bottom:20px;left: 140px;right:140px;}
 #header #menu_entries .menu_entry				{position:relative; display:inline; margin-left:20px;}
 #header #menu_entries .menu_entry:hover .title	{display:inline;}
 #header #menu_entries .menu_entry .title		{display:none; position:absolute; top:20px; left:-35px; width:100px; text-align:center;}
 	
 #header #menu .menu_icon {width:30px; height:30px; cursor:pointer;}
 #header #menu .menu_icon:hover {-webkit-transform:scale(1.4);}
-#header #menu #home {background:url(../../img/icones1.png) 0 0; outline:none;} 
-#header #menu #new_game {background:url(../../img/icones1.png) -210px 0; outline:none;} 
-#header #menu #tournament {background:url(../../img/icones1.png) -240px 0; outline:none;} 
-#header #menu #classment {background:url(../../img/icones1.png) -90px 0; outline:none;} 
-#header #menu #shop {background:url(../../img/icones1.png) -120px 0; outline:none;} 
-#header #menu #buy {background:url(../../img/icones1.png) -150px 0; outline:none;}
+#header #menu #home {background:url(assets/img/icones1.png) 0 0; outline:none;} 
+#header #menu #new_game {background:url(assets/img/icones1.png) -210px 0; outline:none;} 
+#header #menu #tournament {background:url(assets/img/icones1.png) -240px 0; outline:none;} 
+#header #menu #classment {background:url(assets/img/icones1.png) -90px 0; outline:none;} 
+#header #menu #shop {background:url(assets/img/icones1.png) -120px 0; outline:none;} 
+#header #menu #buy {background:url(assets/img/icones1.png) -150px 0; outline:none;}
 
-#header #menu #home:hover {background:url(../../img/icones1.png) 0 -30px; outline:none;} 
-#header #menu #new_game:hover {background:url(../../img/icones1.png) -210px -30px; outline:none;} 
-#header #menu #tournament:hover {background:url(../../img/icones1.png) -240px -30px; outline:none;} 
-#header #menu #classment:hover {background:url(../../img/icones1.png) -90px -30px; outline:none;} 
-#header #menu #shop:hover {background:url(../../img/icones1.png) -120px -30px; outline:none;} 
-#header #menu #buy:hover {background:url(../../img/icones1.png) -150px -30px; outline:none;}
+#header #menu #home:hover {background:url(assets/img/icones1.png) 0 -30px; outline:none;} 
+#header #menu #new_game:hover {background:url(assets/img/icones1.png) -210px -30px; outline:none;} 
+#header #menu #tournament:hover {background:url(assets/img/icones1.png) -240px -30px; outline:none;} 
+#header #menu #classment:hover {background:url(assets/img/icones1.png) -90px -30px; outline:none;} 
+#header #menu #shop:hover {background:url(assets/img/icones1.png) -120px -30px; outline:none;} 
+#header #menu #buy:hover {background:url(assets/img/icones1.png) -150px -30px; outline:none;}
 	
 	/* Connexion */
 #header #connection {width:209px; height:80px; position:absolute; left:815px; text-align:center;}
+#logo img {margin-left:60px;width:80px;height:80px;}
+#connection_top {width:209px;}
+#connection_bottom {width:209px;margin-top:3px;}
+#connection_form input[type="submit"] {font-size:10px;}
+#connection_title {font-size:11px;;}
 
-#logo img {
-	margin-left:60px;
-	width:80px;
-	height:80px;
-}
+/**************** CONTENT ********************/
 
-#connection_top {
-	width:209px;
-}
+	/* /shop/get */
+#content table tr, td {border: 1px solid white; padding:1px}
+#content #shop_bufftab {display:inline;}
+#content #shop_bufftab {display:none;}
 
-#connection_bottom {
-	width:209px;
-	margin-top:3px;
-}
 
-#connection_form input[type="submit"] {
-	font-size:10px;
-}
 
-#connection_title {
-	font-size:11px;;
-}
+
+
+
+
+
+
+
