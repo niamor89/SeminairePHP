@@ -1,3 +1,12 @@
+// ADDEVENT CROSS-BROWSER
+function addEvt(elemt,evt,func)
+{
+	if(elemt.attachEvent)
+		elemt.attachEvent('on'+evt,func);
+	else if(elemt.addEventListener)
+		elemt.addEventListener(evt,func,false);
+}
+
 (function (window) {
 	var SC = {}; // Namespace général
 	window.SC = SC;
@@ -7,22 +16,17 @@
 	SC.FPS.last_sec = new Date();
 	SC.FPS.Count=0;			
 
-	window.onload = function () {
+	addEvt(window,'load',function () {
 		//CANVAS
 		SC.can = document.getElementById('session_canvas');
 		SC.ctx = SC.can.getContext('2d');
 		
-		//SC.Img.load_images(0);
-		SC.Img.load_sprites(function () {
-			SC.Img.load_tiles(function () {
-				SC.Img.load_items(function () {
-					// INITIALISATION DU FRAME TIMER
-					SC.Can.Anim.timer = new SC.Can.Anim.FrameTimer();
-					SC.GL.Game_Loop();
-				});
-			});
+		SC.Img.load_splash(function () {
+			// INITIALISATION DU FRAME TIMER
+			SC.Can.Anim.timer = new SC.Can.Anim.FrameTimer();
+			SC.GL.next_step();
+			//SC.GL.Game_Loop();
 		});
-		
 		
 		document.body.onkeydown = function (evt) {
 			//alert(evt.keyCode);
@@ -37,6 +41,6 @@
 			//BUILD
 			if(evt.keyCode==66) build();*/
 		};
-	};
+	});
 	
 })(window);
