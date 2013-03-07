@@ -8,6 +8,7 @@ var WebsocketClass = function(host){
 	this.socket = new WebSocket(host);
 	this.console = document.getElementsByClassName('console')[0];
 };
+
 WebsocketClass.prototype = {
 	initWebsocket : function(){
 		var $this = this;

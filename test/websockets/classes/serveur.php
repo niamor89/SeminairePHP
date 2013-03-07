@@ -32,7 +32,7 @@ while(true){
 			else{
 				$user = getuserbysocket($socket);
 				if(!$user->handshake){ dohandshake($user,$buffer); }
-				else{ process($user,unmask($buffer)); }
+				else{ process($user,$buffer); }
 			}
 		}
 	}
@@ -44,7 +44,7 @@ while(true){
  * Unmask a received payload
  * @param $payload
  */
-private function unmask($payload) {
+function unmask($payload) {
     $length = ord($payload[1]) & 127;
  
     if($length == 126) {
@@ -71,25 +71,18 @@ private function unmask($payload) {
  * Encode a text for sending to clients via ws://
  * @param $text
  */
-private function encode($text) {
+function encode($text) {
     // 0x1 text frame (FIN + opcode)
     $b1 = 0x80 | (0x1 & 0x0f);
     $length = strlen($text);
  
-    if($length  125 && $length < 65536)
+    if($length > 125 && $length < 65536)
         $header = pack('CCS', $b1, 126, $length);
     elseif($length >= 65536)
         $header = pack('CCN', $b1, 127, $length);
- 
+	
     return $header.$text;
 }
-
-
-
-
-
-
-
 
 function process($from,$msg){
 	console("< ".$from->label." (".$from->userId.") : \n\t".$msg);
