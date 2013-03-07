@@ -32,8 +32,7 @@
 			if(SC.GL.Loading.progresion>=100) {
 				SC.GL.Loading.progresion=100;
 				SC.GL.Game_Loop();
-			}
-			
+			}			
 		}
 	};
 	

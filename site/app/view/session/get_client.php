@@ -7,8 +7,7 @@
 	<script src="/assets/game/js/Draw/Animation.js"></script>
 
 	<canvas id="session_canvas" height = "550px" width = "800px"> </canvas>
-	
-	
+
 	<br/>
 	<br/>
 	<br/>

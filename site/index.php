@@ -1,4 +1,5 @@
 <?php 
+include __DIR__.'/app/dal/dal.php';
 
 $context = array();
 
