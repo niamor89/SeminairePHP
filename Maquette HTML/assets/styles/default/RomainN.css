@@ -2,6 +2,7 @@
 	
 	/* Logo */
 #header #logo {width:209px; height:80px; position:absolute;}
+#header #logo:hover {-webkit-transform:scale(1.2);}
 	
 	/* Menu */
 #header #menu {width:600px; height:80px; position:absolute; left:209px; /*border-left:3px solid #7b5641; border-right:3px solid #7b5641*/}
@@ -15,9 +16,10 @@
 }
 #header #menu_entries .menu_entry				{position:relative; display:inline; margin-left:20px;}
 #header #menu_entries .menu_entry:hover .title	{display:inline;}
-#header #menu_entries .menu_entry .title		{display:none; position:absolute; top:20px; left:7px; width:100px;}
+#header #menu_entries .menu_entry .title		{display:none; position:absolute; top:20px; left:-35px; width:100px; text-align:center;}
 	
-#header #menu .menu_icon {width:30px; height:30px;}
+#header #menu .menu_icon {width:30px; height:30px; cursor:pointer;}
+#header #menu .menu_icon:hover {-webkit-transform:scale(1.4);}
 #header #menu #home {background:url(../../img/icones1.png) 0 0; outline:none;} 
 #header #menu #new_game {background:url(../../img/icones1.png) -210px 0; outline:none;} 
 #header #menu #tournament {background:url(../../img/icones1.png) -240px 0; outline:none;} 
