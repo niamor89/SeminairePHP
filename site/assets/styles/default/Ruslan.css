@@ -1,3 +1,28 @@
+/* SESSION/START */
+#session {
+	height:100%;
+	width:100%;
+	margin-top:20px;
+	text-align:center;
+}
+#session_loading {
+	position:fixed;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	background-color:rgba(255,255,255,0.8);
+	font-size:20px;
+	font-weight:bold;
+	display:none;
+	color:#888;
+	text-align:center;
+	padding-top:20%;
+	z-index:1000;
+}
+
+
+/* SESSION/GET CLIENT */
 #session_canvas {
 	height : 550px;
 	width : 800px;
