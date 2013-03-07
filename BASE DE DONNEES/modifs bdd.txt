@@ -1,0 +1,2 @@
+Dans la table T_Produit:
+	ajouter un champ type_produit ("buff" ou "item")
