@@ -85,7 +85,7 @@ body { color:#FFF; background-color:#402d22; }
 #header #menu ul li:hover .title { display:inline; }*/
 
 /**************** CONTENT ********************/
-#content { width:1014px; padding:5px; text-align:center; }
+#content { width:1014px; padding:5px; text-align:left; }
 
 /**************** FOOTER *********************/
 #footer {  width:1014px; padding:5px; text-align:center; }

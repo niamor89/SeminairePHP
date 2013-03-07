@@ -4,7 +4,7 @@
 #header #logo {width:209px; height:80px; position:absolute;}
 	
 	/* Menu */
-#header #menu {width:600px; height:80px; position:absolute; left:209px; border-left:3px solid #7b5641; border-right:3px solid #7b5641}
+#header #menu {width:600px; height:80px; position:absolute; left:209px; /*border-left:3px solid #7b5641; border-right:3px solid #7b5641*/}
 
 #header #menu_entries {
 	position:absolute;

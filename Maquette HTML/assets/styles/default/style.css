@@ -71,16 +71,18 @@ h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 /**********************************************/
 /**********************************************/
 html {
-background:url(../../img/Background.png) 0 0 no-repeat;
+background:url(../../img/Background2.jpg) 0 0 no-repeat;
+background-attachment:fixed;
 background-size: cover;
+text-shadow: 2px 2px #101010;
 }
 
-#page { width:1024px; margin:auto; border-top:3px solid #7b5641; border-left:3px solid #7b5641; border-right:3px solid #7b5641; margin-top:50px; background-color:#402d22; border-radius:10px;}
-#header, #footer { width:100%; border-bottom:3px solid #7b5641; position:relative; }
-#content { width:100%; border-bottom:3px solid #7b5641; position:relative; }
-#header, #footer { height:80px; }
+#page { width:1024px; margin:auto; margin-top:50px; background:url(../../img/bois2.png); border:3px solid #7b5641; border-radius:10px;}
 body { color:#FFF;}
 .clear { clear:both; width:100%; }
+
+#header, #content, #footer { width:100%; position:relative; } 
+#header, #footer { height:80px; }
 
 /**************** HEADER *********************/
 
@@ -90,10 +92,10 @@ body { color:#FFF;}
 #header #menu ul li:hover .title { display:inline; }*/
 
 /**************** CONTENT ********************/
-#content { width:1014px; padding:5px; text-align:center; }
+#content { width:1014px; text-align:center; }
 
 /**************** FOOTER *********************/
-#footer {  width:1014px; padding:5px; text-align:center; }
+#footer {  width:1014px; text-align:center; }
 
 /**********************************************/
 /**********************************************/
