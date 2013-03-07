@@ -11,6 +11,7 @@ header('Location: /tournament/start');
 }
 else
 {
-echo"Mother fucker";
 }
+
+
 ?>
