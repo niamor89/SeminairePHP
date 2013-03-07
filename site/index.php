@@ -62,16 +62,16 @@ if (null != $out)
 					<div id="logo">
 						Logo div
 					</div>
-					<div id="menu">
-						<div id="menu_entries">
-							<div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div>
-							<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div>
-							<div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div>
-							<div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div>
-							<div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div>
-							<div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div>
+						<div id="menu">
+							<div id="menu_entries">
+								<a href="/website/index"><div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div></a>
+								<a href="/session/get_client"><div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div></a>
+								<a href="#"><div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div></a>
+								<a href="#"><div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div></a>
+								<a href="#"><div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div></a>
+								<a href="/currency/get"><div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div></a>
+							</div>
 						</div>
-					</div>
 					<div id="connection">
 						<?php  echo render_action("user/check_log") ?>
 					</div>
