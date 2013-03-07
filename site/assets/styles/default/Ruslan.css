@@ -3,4 +3,5 @@
 	width : 800px;
 	border : 1px solid rgba(173,134,105,1);
 	margin : 1px;
+	-webkit-box-shadow: 0 0 3px 3px rgba(255,255,255,0.3);
 }
