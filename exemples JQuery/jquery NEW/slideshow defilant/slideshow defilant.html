@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+		
+		<script>
+			var i,nb_img,decalage=138;
+			var assoc = [['1.m.jpg','1.jpg'],
+						['2.m.jpg','2.jpg'],
+						['3.m.jpg','3.jpg'],
+						['4.m.jpg','4.jpg']];
+			
+			function tour(){
+				i=nb_img;
+				$('#bandeau img').animate({'left':'-='+decalage+'px'},{duration:decalage*34,complete:
+					function(){	
+						if(--i==0){
+							$('#bandeau img:first').appendTo($('#bandeau')).css('left',
+							((nb_img-1)*138)+'px');
+							decalage=138;
+							i=null;
+							tour();
+						}
+					},easing:'linear', step:
+					function(current) {
+						if($('#bandeau img:first').attr('src')==$(this).attr('src'))
+							decalage=138-(Math.abs(current)%138);
+					}
+				});
+			}
+			$(function(){
+				nb_img=$('#bandeau img').length;
+				
+				$('#bandeau').on('mouseover',function(){
+					$('#bandeau img').stop();
+				});
+				$('#bandeau').on('mouseout',function(){
+					if($('#bandeau img:animated').length==0) tour();
+				});
+				
+				$('#bandeau img').each(function(index,elem){
+					$(this).css('left',(index*138)+'px');
+					
+					$(this).on('click',function(){
+						var j;
+						for(j=0;j<nb_img;j++)
+							if(assoc[j][0]==$(this).attr('src'))
+							{
+								$('#zoom_img').attr('src',assoc[j][1]);
+								var x = 600;
+								var y = 600;
+								$('#zoom').css({'height':y,'width':x,'position':'fixed',
+								'top':parseInt((window.innerHeight-y)/2),
+								'left':parseInt((window.innerWidth-x)/2),
+								'display':'block'
+								});
+								break;
+							}
+					});
+				});
+				
+				$('#zoom').on('click',function(){ $('#zoom').hide(); });
+				tour();				
+			});
+		</script>
+		<style>
+			#bandeau {
+				height:100%;
+				width:560px;
+				position:relative;
+			}
+			#slideshow {
+				height:139px;
+				width:416px;
+				padding-top:8px;
+				border:1px solid #eee;
+				overflow-x:hidden;
+			}
+			#slideshow #bandeau img {
+				display:inline;
+				margin-left:5px;
+				position:absolute;
+				cursor:pointer;
+			}
+			
+			#zoom {
+				display:none;
+				border:2px solid #eee;
+			}
+			#zoom_img {
+				height:100%;
+				width:100%;
+				cursor:pointer;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="slideshow">
+			<div id="bandeau">
+				<img src="1.m.jpg"/>
+				<img src="2.m.jpg"/>
+				<img src="3.m.jpg"/>
+				<img src="4.m.jpg"/>
+			</div>
+		</div>
+		<div id="zoom">
+			<img id="zoom_img"/>
+		</div>
+	</body>
+</html>

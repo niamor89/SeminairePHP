@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+		
+		<script>
+			$(function(){
+				$('div:first').append($('p')).css('color','red');
+				$('div:last').append('<p>TOTO</p>');
+				$('div:eq(1)').append('<p>DEUXIEME</p>');
+				$('p:odd').css('color','green');
+				$('p:even').css('color','orange');
+				
+				/**********************************/
+				
+				$('val:gt(1)').css('color','red');
+				
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div>div1</div>
+		<p>p1</p>
+		<div>div2</div>
+		<p>p2</p>
+		<div>div3</div>
+		<p>p3</p>
+		
+		<br/>
+		
+		<tab>
+			<val>1</val>
+			<val>2</val>
+			<val>3</val>
+			<val>4</val>
+			<val>5</val>
+			<val>6</val>
+		</tab>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+		<style>
+			#carres div{
+				float:left;
+				height:100px;
+				width:100px;
+				border:1px solid red;
+				margin:5px;
+			}
+			
+			#carres div.bleu { border:1px solid #00F; }
+		</style>
+		<script>
+			$(function(){
+				$('#boutons input:first').on('click',function() {
+					var carre_prec = $('div.bleu').prev();
+					if(carre_prec.length>0)
+					{
+						$('div.bleu').removeClass('bleu');
+						carre_prec.addClass('bleu');
+					}
+				});
+				$('#boutons input:last').on('click',function() {
+					var prochain_carre = $('div.bleu').next();
+					if(prochain_carre.length>0)
+					{
+						$('div.bleu').removeClass('bleu');
+						prochain_carre.addClass('bleu');
+					}
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div id="carres">
+			<div class="bleu"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div id="boutons">
+			<input type="button" value="<--"/>
+			<input type="button" value="-->"/>
+		</div>
+	</body>
+</html>

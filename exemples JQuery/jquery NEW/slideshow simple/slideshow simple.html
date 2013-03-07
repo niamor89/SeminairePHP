@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+		
+		<script>
+			var assoc = [['1.m.jpg','1.jpg'],
+						['2.m.jpg','2.jpg'],
+						['3.m.jpg','3.jpg'],
+						['4.m.jpg','4.jpg']];
+			$(function(){
+				$('#zoom img').fadeOut(1);
+				$('#menu img').on('mouseover',function(){
+					var j;
+					for(j=0;j<assoc.length;j++)
+						if(assoc[j][0]==$(this).attr('src'))
+						{
+							$('#zoom img[src="'+assoc[j][1]+'"]').fadeIn(1000);
+							break;
+						}
+				});
+				$('#menu img').on('mouseout',function(){
+					var j;
+					for(j=0;j<assoc.length;j++)
+						if(assoc[j][0]==$(this).attr('src'))
+						{
+							$('#zoom img[src="'+assoc[j][1]+'"]').fadeOut(1000);
+							break;
+						}
+				});
+			});
+		</script>
+		<style>
+			#main {
+				width:900px;
+			}
+			#menu {
+				border:2px solid red;
+				padding:10px;
+				width:130px;
+				float:left;
+			}
+			#menu img {
+				display:block;
+				margin-bottom:10px;
+			}
+			#zoom {
+				width:700px;
+				float:left;
+				position:relative;
+			}
+			#zoom img {
+				position:absolute;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="main">
+			<div id="menu">
+				<img src="1.m.jpg"/>
+				<img src="2.m.jpg"/>
+				<img src="3.m.jpg"/>
+				<img src="4.m.jpg"/>
+			</div>
+			<div id="zoom">
+				<img src="1.jpg"/>
+				<img src="2.jpg"/>
+				<img src="3.jpg"/>
+				<img src="4.jpg"/>
+			</div>
+		</div>
+		
+	</body>
+</html>

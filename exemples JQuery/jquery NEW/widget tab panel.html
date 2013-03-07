@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+		<style>
+			#wg-widget {
+				height:400px;
+				width:400px;
+			}
+			#wg-widget #wg-tabs ul {
+				padding:0px;
+				margin:0px;
+			}
+			#wg-widget #wg-tabs ul li {
+				border:1px solid #aaa;
+				background-color: #eee;
+				display:inline;
+				padding:4px;
+				cursor:pointer;
+			}
+			#wg-widget #wg-tabs ul li:hover { background-color: orange; }
+			#wg-widget #wg-tabs ul li.visible {
+				background-color: #999;
+			}
+			#wg-widget #wg-content{
+				border:1px solid #aaa;
+				background-color: #eee;
+				height:370px;
+				width:100%;
+				position:relative;
+				overflow:hidden;
+				overflow-y:auto;
+			}
+			#wg-widget #wg-content div.wg-panel { 
+				position:absolute; 
+				width:392px;
+				padding:4px;
+				display:none;
+			}
+			
+			#wg-widget #wg-content div.wg-panel-visible {
+				display:block;
+			}
+		</style>
+		<script>
+			/****************** GENERATION WIDGET ******************/
+			$(function(){
+				$('#wg-widget #wg-content .wg-panel').fadeOut(1);
+				$('#wg-widget .wg-panel-titre').each(function(index,elem){
+					$('#wg-widget #wg-tabs ul').append(
+					'<li '+
+					($(elem).parent().hasClass('wg-panel-visible')?'class="visible"':'')
+					+'>'+ $(elem).html() +'</li>');
+				});
+				if($('#wg-widget #wg-content .wg-panel-visible').length==0)
+				{
+					$('#wg-widget #wg-content .wg-panel:first').addClass('wg-panel-visible');
+					$('#wg-widget #wg-tabs ul li:first').addClass('visible');
+				}
+				
+				$('#wg-widget #wg-content .wg-panel-visible').fadeIn(1);
+				
+				$('#wg-widget #wg-tabs ul li').each(function(index,elem){
+					$(this).on('click',function(){
+					
+						$('#wg-widget #wg-content .wg-panel-visible').fadeOut(800,function(){
+							$('#wg-widget #wg-tabs ul li.visible').removeClass('visible');
+							$('#wg-widget #wg-content .wg-panel-visible').removeClass('wg-panel-visible');
+							
+							$('#wg-widget #wg-tabs ul li:eq('+index+')').addClass('visible');
+							$('#wg-widget #wg-content .wg-panel:eq('+index+')').addClass('wg-panel-visible');
+							
+							$('#wg-widget #wg-content .wg-panel:eq('+index+')').fadeIn(800);
+						});
+						
+					});
+				});
+				
+				
+				
+			});
+			/*******************************************************/
+		</script>
+	</head>
+	
+	<body>
+		<div id="wg-widget">
+			<div id="wg-tabs">
+				<ul></ul>
+			</div>
+			<div id="wg-content" class="wg-panels">
+				<div class="wg-panel">
+					<div class="wg-panel-titre">
+						Item1
+					</div>
+					<div class="wg-panel-contenu">
+						<p>aklfhl akzfk lazklfha zlhfl<br/>zepkfzefg pazefi pjzepjf</p>
+						<img src=""/> <marquee>DANCE !</marquee>
+					</div>
+				</div>
+				<div class="wg-panel wg-panel-visible">
+					<div class="wg-panel-titre">
+						Item2
+					</div>
+					<div class="wg-panel-contenu">
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+						<p>atyur lazklfha zlhfl<br/>zeper hterhtzefi pjzepjf</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

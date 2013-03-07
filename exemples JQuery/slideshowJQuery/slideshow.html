@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jq.js">
+		</script>
+		<style>
+			img {
+				width : 600px;
+				height : 400px;
+				position:absolute;
+				left:10px;
+				top:10px;
+			}
+		</style>
+		<script>
+			$(function () {
+
+					function rotate () {
+						$('#slideshow img:last').fadeOut(1000,function () 
+						{
+							$(this).prependTo($('#slideshow'));
+							$('#slideshow img:first').fadeIn(2000, function() {rotate();})
+						});
+					}
+					rotate();
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div id="slideshow">
+			<img src="1.jpg" />
+			<img src="2.jpg" />
+			<img src="3.jpg" />
+			<img src="4.jpg" />
+		</div>
+	</body>
+</html>

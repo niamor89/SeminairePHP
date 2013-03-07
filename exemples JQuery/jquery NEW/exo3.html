@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"> </script>
+		
+		<script>
+			function tour(){
+				$('div').animate({left:'200px',fontSize:'24px'},{duration:1000,complete:function(){
+						$('div').animate({top:'200px'},{duration:1000,complete:function(){
+								$('div').animate({left:'100px',fontSize:'16px'},{duration:1000,complete:function(){
+										$('div').animate({top:'100px'},{duration:1000,complete:function(){
+												tour();
+											}
+										});}
+								});}
+						});}
+				});
+			}
+			$(tour);
+		</script>
+		<style>
+			div {
+				position:relative;
+				top:100px;
+				left:100px;
+				height:100px;
+				width:100px;
+				border:1px solid orange;
+				background-color:green;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div>
+			TEXT
+		</div>
+	</body>
+</html>

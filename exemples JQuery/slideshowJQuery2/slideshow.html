@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jq.js">
+		</script>
+		<style>
+			img, #slideshow, #slideshow div {
+				width : 600px;
+				height : 400px;
+			}
+			#slideshow {
+				position : relative;
+				left:200px;
+				top:200px;
+				
+			}
+			#slideshow div {
+				position:absolute;
+				left:0px;
+				top:0px;
+				overflow : hidden ;
+			}
+			p {
+				position:relative;
+				top:0px;
+				width : 588px;
+				height : 150px;
+				background-color:#000;
+				opacity:0.4;
+				color:#FFF;
+				font-size:20px;
+				padding:6px;
+			}
+		</style>
+		<script>
+			$(function () {
+
+					function rotate () {
+						$('#slideshow div:last p').animate( {top : '-=100px'}, { duration : 1000, complete : function () 
+							{
+								var t = setTimeout(function (){
+								
+									$('#slideshow div:last').fadeOut(1000,function () 
+									{
+										$('#slideshow div:first p').css('top','0px');
+										$('#slideshow div:last').prependTo($('#slideshow'));
+										$('#slideshow div:first').fadeIn();
+										rotate();
+									});
+								
+								},2000);
+							}
+						});
+						
+					}
+					rotate();
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div id="slideshow">
+			<div><img src="1.jpg" /><p>Image 1</p></div>
+			<div><img src="2.jpg" /><p>Image 2</p></div>
+			<div><img src="3.jpg" /><p>Image 3</p></div>
+			<div><img src="4.jpg" /><p>Image 4</p></div>
+		</div>
+	</body>
+</html>
