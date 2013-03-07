@@ -92,11 +92,8 @@ body { color:#FFF;}
 #header #menu ul li:hover .title { display:inline; }*/
 
 /**************** CONTENT ********************/
-<<<<<<< HEAD
-#content { width:1014px;}
-=======
+
 #content { width:1014px; }
->>>>>>> f9c2abed2f98b7c814f6f23f1d154d9a145de181
 
 /**************** FOOTER *********************/
 #footer {  width:1014px; text-align:center; }
