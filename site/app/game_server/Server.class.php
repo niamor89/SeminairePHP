@@ -174,6 +174,7 @@ class Server {
 		if($i >= 0)
 			array_splice($this->clients, $i, 1);
 		$this->console("Client #{$client->getId()} disconnected");
+		
 	}
 
 	/**
@@ -196,8 +197,12 @@ class Server {
 	 * @param $action
 	 */
 	private function action($client, $action) {
-		$action = $this->unmask($action);
-		$this->console("Performing action: ".$action);
+		$action = json_decode($this->unmask($action));
+		$this->console("Performing action: ".$action[0]);
+		if($action[0] == 'PONG') {
+			sleep(2);
+			$this->send($client, array("PING"));
+		}
 	}
 	
 	/**
@@ -233,7 +238,8 @@ class Server {
 						if(!$client->getHandshake()) {
 							$this->console("Doing the handshake");
 							if($this->handshake($client, $data))
-								$this->startProcess($client);
+								$this->send($client, array("PING"));
+								//$this->startProcess($client);
 						}
 						elseif($bytes === 0) {
 							$this->disconnect($client);
@@ -252,17 +258,17 @@ class Server {
 	 * Start a child process for pushing data
 	 * @param unknown_type $client
 	 */
-	private function startProcess($client) {
+	/*private function startProcess($client) {
 		$this->console("Start a child process");
 
-		while(true) {
+		while(1) {
 			// push something to the client
 			$seconds = rand(2, 5);
 			$this->send($client, "I am waiting {$seconds} seconds");
 			sleep($seconds);
 		}
 
-	}
+	}*/
 
 	/**
 	 * Send a text to client
@@ -270,12 +276,15 @@ class Server {
 	 * @param $text
 	 */
 	private function send($client, $text) {
+		$text=json_encode($text);
 		$this->console("Send '".$text."' to client #{$client->getId()}");
 		$text = $this->encode($text);
+		
 		if(socket_write($client->getSocket(), $text, strlen($text)) === false) {
 			$this->console("Unable to write to client #{$client->getId()}'s socket");
 			$this->disconnect($client);
 		}
+		else $this->console("Message sent : ".$text);
 	}
 
 	/**

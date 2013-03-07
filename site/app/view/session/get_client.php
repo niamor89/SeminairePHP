@@ -5,8 +5,10 @@
 	<script src="/assets/game/js/Game_Logic/Game_Logic.js"></script>
 	<script src="/assets/game/js/Draw/Draw.js"></script>
 	<script src="/assets/game/js/Draw/Animation.js"></script>
+	<script src="/assets/game/js/IO/IO.js"></script>
 
-	<div id="session"><canvas id="session_canvas" height = "550px" width = "800px"> </canvas></div>
+	<div id="session"><canvas id="session_canvas" height = "550px" width = "800px"> </canvas><div id="session_debug"></div></div>
+	
 
 	
 

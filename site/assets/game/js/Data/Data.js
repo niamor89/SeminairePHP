@@ -45,28 +45,4 @@
 		}
 		document.body.innerHTML = JSON.stringify(newMap);
 	};
-	//GAME
-	/*ENV.player = {
-		"direction" : 0,//dir : 0 = face, 1 = droite, 3 = gauche, 2 = dos 
-		"etat" : 8, //--- 0 = _w --- +4 = _c --- +8 = rien
-		"x" : 3,
-		"y" : 3 ,
-		"wood" : 0,
-		"rock" : 0
-		};
-		
-	ENV.ressources = new Array();
-	ENV.Ressource = function (x,y,life,type) {
-		this.x=x;
-		this.y=y;
-		this.life=life; // nbr de coups à donner
-		this.type=type; // 1 = arbre, 2 = rocher
-	}
-
-	
-	ENV.houses = new Array();
-	ENV.House = function (x,y) {
-		this.x=x;
-		this.y=y;
-	}*/
 })(SC);
