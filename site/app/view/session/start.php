@@ -6,7 +6,7 @@
 </div>
 <script>
 	$('#session_start').click(function (){
-		//$.get('/session/start');
+		$.get('/session/start&new',function(data){alert(data);});
 		$('#session_loading').show();
 	});
 </script>

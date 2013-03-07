@@ -55,15 +55,22 @@ class Server {
 	private $verboseMode;
 	
 	/**
+	 * Numéro de la session/partie
+	 * @var Boolean
+	 */
+	private $session;
+	
+	/**
 	 * Server constructor
 	 * @param $address The address IP or hostname of the server (default: 127.0.0.1).
 	 * @param $port The port for the master socket (default: 5001)
 	 */
-	function Server($address = '127.0.0.1', $port = 5001, $verboseMode = false) {
+	function Server($address = '127.0.0.1', $port = 5001, $verboseMode = false, $session) {
 		$this->console("Server starting...");
 		$this->address = $address;
 		$this->port = $port;
 		$this->verboseMode = $verboseMode;
+		$this->session = $session;
 
 		// socket creation
 		$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -191,11 +198,6 @@ class Server {
 	private function action($client, $action) {
 		$action = $this->unmask($action);
 		$this->console("Performing action: ".$action);
-		if($action == "exit" || $action == "quit") {
-			$this->console("Killing a child process");
-			posix_kill($client->getPid(), SIGTERM);
-			$this->console("Process {$client->getPid()} is killed!");
-		}
 	}
 	
 	/**
@@ -203,7 +205,12 @@ class Server {
 	 */
 	public function run() {
 		$this->console("Start running...");	
-		$this->console('PID : '.getmypid());	
+		$this->console('PID : '.getmypid());
+		$this->console('SESSION : '.$this->session);	
+		// BEFORE RUNNING =============
+		ExecSQL('DELETE FROM t_server WHERE pid_server='.getmypid().';');
+		InsertTable('t_server',array('pid_server'=>getmypid(),'id_partie'=>$this->session));
+		// END OF BEFORE RUNNING =============
 		while(true) {
 			$changed_sockets = $this->sockets;
 			@socket_select($changed_sockets, $write = NULL, $except = NULL, 1);

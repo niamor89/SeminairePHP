@@ -20,6 +20,7 @@
 error_reporting(E_ALL);
 require_once 'Server.class.php';
 require_once 'Client.class.php';
+require_once __DIR__.'/../dal/dal.php';
 
 set_time_limit(0);
 
@@ -28,6 +29,6 @@ $address = '127.0.0.1';
 $port = 5001;
 $verboseMode = true;
 
-$server = new Server($address, $port, $verboseMode);
+$server = new Server($address, $port, $verboseMode,$argv[1]);
 $server->run();
 ?>
