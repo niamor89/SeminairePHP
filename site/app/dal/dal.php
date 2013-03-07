@@ -145,3 +145,9 @@ function UpdateTable($table,$t,$condition)
     return ExecSQL($sql); 
 }
 
+include 'Antoine.php';
+include 'RomainN.php';
+include 'RomainT.php';
+include 'Ousmane.php';
+include 'Ruslan.php';
+include 'Farah.php';
