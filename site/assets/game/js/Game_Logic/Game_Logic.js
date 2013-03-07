@@ -1,12 +1,42 @@
 (function (SC) {
 	SC.GL = {}; // Namespace de la logique coté client
+	
+	SC.GL.Step = 0; 
+	SC.GL.Steps = [  //LOGICAL STEPS : 
+					"Doing random stuf",
+					"Just sitting here and ... waiting"
+				 ];
+	
 	SC.GL.Game_Loop = function  () {
 		
-		SC.Can.draw();
+		SC.Can.drawGame();
 		
+		SC.Can.drawFPS();
 		var t = setTimeout('SC.GL.Game_Loop()',30);
 	};
-
+	
+	SC.GL.Loading = {};
+	SC.GL.Loading.progresion = 0;
+	
+	SC.GL.next_step = function(nb) {
+		SC.GL.Loading.progresion += nb || 0;
+		if(SC.GL.Step==0) {
+			
+			if((SC.Img.sprites || SC.Img.load_sprites(function() {SC.GL.next_step(34)})) && 
+			   (SC.Img.tiles || SC.Img.load_tiles(function() {SC.GL.next_step(33)}))  && 
+			   (SC.Img.items || SC.Img.load_items(function() {SC.GL.next_step(33)}))
+			   ) SC.GL.Step++; 			
+			
+			SC.Can.drawSplash();
+			
+			if(SC.GL.Loading.progresion>=100) {
+				SC.GL.Loading.progresion=100;
+				SC.GL.Game_Loop();
+			}
+			
+		}
+	};
+	
 	SC.GL.move = function (dir) { //dir : 1 = top, 2 = right, 3 = bottom, 4 = left	
 		player.etat = 8;
 		if(dir==4) { // GAUCHE

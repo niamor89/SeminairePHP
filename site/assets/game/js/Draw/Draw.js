@@ -1,7 +1,13 @@
 (function (SC) {
 	SC.Can = {}; // Namespace de dessin dans le canvas
 	
-	SC.Can.draw = function () {
+	SC.Can.drawFPS = function () {
+		SC.ctx.fillStyle = 'rgba(120,80,130,1)';
+		SC.ctx.font = 'bold 18px Calibri';
+		SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',20,20);
+	};
+	
+	SC.Can.drawGame = function () {
 		
 		SC.ctx.clearRect(0,0,SC.can.height,SC.can.width);
 		SC.ctx.fillStyle = 'rgba(255,255,255,1)';
@@ -13,9 +19,7 @@
 		SC.Can.drawHouses();
 		
 		SC.Can.drawPlayer();*/
-		SC.ctx.fillStyle = 'rgba(255,255,255,0.6)';
-		SC.ctx.font = 'bold 18px Calibri';
-		SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',20,20);
+		
 		
 		//TEST					
 		/*SC.Can.Anim.walk.animate(SC.Can.Anim.timer.getSeconds());
@@ -23,6 +27,29 @@
 		SC.Can.drawSprite(SC.Img.sprites,frame,1,5,5);
 		SC.Can.drawSprite(SC.Img.items,1,1,5,6);
 		SC.Can.Anim.timer.tick();*/
+	};
+	
+	SC.Can.drawSplash = function () {
+		SC.ctx.clearRect(0,0,SC.can.height,SC.can.width);
+		SC.ctx.fillStyle = 'rgba(255,255,255,1)';
+		// Picture
+		SC.ctx.fillRect(0,0,800,550);
+		SC.ctx.drawImage(SC.Img.splash, 0, 0, 800, 550, 0, 0, 800, 550);
+		// Loading BG
+		SC.ctx.fillStyle = 'rgba(66,61,37,0.3)';
+		SC.ctx.fillRect(100,450,600,30);
+		// Loading PROGRESSION
+		SC.ctx.fillStyle = 'rgba(66,61,37,1)';
+		SC.ctx.fillRect(100,450,parseInt(SC.GL.Loading.progresion*6),30);
+		// Loading Border
+		SC.ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+		SC.ctx.strokeRect(99,449,602,32);
+		// Loading Text
+		SC.ctx.fillStyle = 'rgba(255,255,255,1)';
+		SC.ctx.font = 'bold 18px Calibri';
+		SC.ctx.fillText(SC.GL.Steps[SC.GL.Step],300,470);
+		
+		SC.GL.Loading.progresion
 	};
 	
 	SC.Can.drawSprite = function (img,srcX,srcY,ctxX,ctxY) {

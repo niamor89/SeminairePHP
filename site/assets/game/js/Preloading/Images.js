@@ -40,4 +40,11 @@
 		SC.Img.items.onload = func_onload();
 	};
 	
+	// Précharger le SplashScreen
+	SC.Img.load_splash = function (func_onload) {
+		SC.Img.splash = new Image();
+		SC.Img.splash.src = '/assets/game/img/SplashScreen.jpg';
+		SC.Img.splash.onload = func_onload();
+	};
+	
 })(SC);

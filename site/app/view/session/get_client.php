@@ -8,6 +8,7 @@
 
 	<canvas id="session_canvas" height = "550px" width = "800px"> </canvas>
 	
+	<!--
 	<br/>
 	<br/>
 	<br/>
@@ -56,5 +57,5 @@
 		}
 
 	</script>
-
+	-->
 	
