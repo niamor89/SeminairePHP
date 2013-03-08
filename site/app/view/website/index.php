@@ -27,9 +27,9 @@
 -->
 
 <script>
-	var index_assoc = [['/assets/img/map_mini.png','/assets/img/map.png'],
-			['/assets/img/map2_mini.png','/assets/img/map2.png'],
-			['/assets/img/map3_mini.png','/assets/img/map3.png']];
+	var index_assoc = [['/assets/img/map.png','/assets/img/map.png'],
+			['/assets/img/map2.png','/assets/img/map2.png'],
+			['/assets/img/map3.png','/assets/img/map3.png']];
 	$(function(){
 		$('#index_zoom img:gt(0)').fadeOut();
 		$('#index_menu img').each(function() {
@@ -50,9 +50,9 @@
 		
 <div id="index_main">
 	<div id="index_menu">
-		<img src="/assets/img/map_mini.png"/>
-		<img src="/assets/img/map2_mini.png"/>
-		<img src="/assets/img/map3_mini.png"/>
+		<img src="/assets/img/map.png"/>
+		<img src="/assets/img/map2.png"/>
+		<img src="/assets/img/map3.png"/>
 	</div>
 	<div id="index_zoom">
 		<img src="/assets/img/map.png"/>

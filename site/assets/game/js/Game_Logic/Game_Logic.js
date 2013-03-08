@@ -35,7 +35,7 @@
 		}
 		else if(SC.GL.Step==2) {// Loading map
 			if(SC.Data.ENV.map) { SC.GL.Step++; SC.GL.next_step(10); }
-			else var t= setTimeout('SC.GL.next_step(0);',10);
+			else var t= setTimeout('SC.GL.next_step(0);',3000);
 		}
 		else if(SC.GL.Step==3) {// Loading character
 			if(SC.Data.ENV.characters.length>0) { SC.GL.Step++; SC.GL.next_step(20); }
@@ -46,7 +46,7 @@
 			else var t= setTimeout('SC.GL.next_step(0);',3000);
 		}
 		else {//Is actually ready, juste listen to music
-			var t = setTimeout('SC.GL.next_step(100);',10);
+			var t = setTimeout('SC.GL.next_step(100);',3000);
 		}
 		SC.Can.drawSplash();
 		if(SC.GL.Loading.progresion>=100) {

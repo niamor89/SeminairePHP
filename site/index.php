@@ -96,10 +96,7 @@ if (null != $out)
 			<div class="clear"></div>
 			<div id="footer">
 				<footer>
-					Copyleft &#169; Survival Camp 2013
-					<div id="pub">
-						<img src="/assets/img/pub.png" />
-					</div>
+					<?php if(isset($context['pub'])) echo $context['pub'];?>
 				</footer>
 			</div>
 		</div>

@@ -4,6 +4,11 @@ position:relative;
 left:20%;
 }
 
+div#content{
+position:relative;
+min-height:600px;
+}
+
 table#shop_itemtab,div.shop_add_form
 {
 position:relative;
@@ -114,4 +119,14 @@ button#shop_but_bufftab:active,button#shop_but_itemtab:active,div.leavequeuebutt
 }
 #admin h1 {
 	font-size:28px;;
+}
+
+#index_zoom img {
+	height:400px;
+	width:600px;
+}
+
+#index_menu img {
+	height:124px;
+	width:180px;
 }
