@@ -14,4 +14,17 @@ function account_exist($pseudo,$mdp)
 	return $row;
 }
 
+function update_avatar($file_path)
+{
+	$nb = UpdateTable('t_joueur',array('file_path'=>$file_path),'pseudo_Joueur="antoine"');
+	//$nb = UpdateTable('t_joueur',array('file_path'=>$file_path),'pseudo_Joueur="'.$_SESSION['pseudo_user'].'"');
+	return $row;
+}
+
+function get_info()
+{
+	$row = GetRow('SELECT * FROM t_joueur WHERE pseudo_Joueur="'.$_SESSION['pseudo_user'].'";');
+	return $row;
+}
+
 ?>
