@@ -19,11 +19,11 @@
 			if(count($l)>1 && substr($l[1],1,-1)==$serv['pid_server']) {
 				//echo substr($l[1],1,-1).'==';
 				$alive=1; 
-				break;
+				if(isset($_GET['alive']) && $_GET['alive']==$serv['id_partie'] && $found=1) { echo $alive; break; }
 			}
 		}
 		if(!$alive) ExecSQL('DELETE FROM t_server WHERE pid_server='.$serv['pid_server'].';');
-		if(isset($_GET['alive']) && $_GET['alive']==$serv['id_partie'] && $found=1) { echo $alive; break; }
+		
 		//echo $serv['pid_server'].':'.$alive.'<br/>';
 	}
 	if(isset($_GET['alive']) && !$found) { echo $found; }

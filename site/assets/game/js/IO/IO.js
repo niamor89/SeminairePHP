@@ -62,12 +62,28 @@
 			SC.Data.ENV.characters.push(action[1]); SC.IO.ws.write(['RES']);
 		}
 		else if(action[0]=='CHARACTER_U'){
+			var found = 0;
 			for(var c in SC.Data.ENV.characters)
 			{
-				SC.Data.ENV.characters[c];
-				if(SC.Data.ENV.characters[c].Name==action[1].Name) SC.Data.ENV.characters[c]=action[1];
+				if(SC.Data.ENV.characters[c].Name==action[1].Name) { 
+					SC.Data.ENV.characters[c]=action[1];
+					found=true;
+					break;
+				}
 			}
+			if(!found)SC.Data.ENV.characters.push(action[1]);
 			
+		}
+		else if(action[0]=='CHARACTER_D'){
+			for(var c in SC.Data.ENV.characters)
+			{
+				if(SC.Data.ENV.characters[c].Name==action[1].Name) { 
+					var new_char = new Array();
+					for(var j in SC.Data.ENV.characters) if(c!=j) new_char.push(SC.Data.ENV.characters[j]);
+					SC.Data.ENV.characters = new_char;
+					break;
+				}
+			}			
 		}
 		else if(action[0]=='RES'){
 			SC.Data.ENV.ressources=action[1];

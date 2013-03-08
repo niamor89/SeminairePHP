@@ -16,7 +16,7 @@
 	   Votre navigateur ne supporte pas le tag . 
 	</audio> 
 	<script>
-		$('#session_music').get()[0].volume=0.2; $('#session_music').get()[0].play();
+		//$('#session_music').get()[0].volume=0.2; $('#session_music').get()[0].play();
 		
 		var session_time_out = 5;
 		var session_alive_launch = new Date();
@@ -24,9 +24,10 @@
 		function server_alive() {
 		$.get('/session/check_servers&alive='+session_nb,function(data){
 			var seconds = new Date(new Date() - session_alive_launch).getSeconds();				
-			if(seconds<session_time_out)
+			if(seconds<session_time_out) {
 				if(data==0)
 					var t = setTimeout('server_alive();',1000);
+			}
 			else
 				{ alert('Serveur injoignable'); document.location.href='/session/start'; }
 		});

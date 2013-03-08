@@ -175,6 +175,10 @@ class Server {
 	 */
 	private function disconnect($client) {
 		$this->console("Disconnecting client #{$client->getId()}");
+		foreach($this->clients as $cl)
+		{
+			$this->send($cl, array("CHARACTER_D",$client->character));
+		}	
 		$i = array_search($client, $this->clients);
 		$j = array_search($client->getSocket(), $this->sockets);
 		
@@ -225,10 +229,15 @@ class Server {
 		}
 		else if($action[0] == 'CHARACTER') {
 			//$name = GetRow('SELECT psuedo_joueur FROM t_joueur WHERE 
-			$client->setCharacter(new Character('Hrusdik'));
+			$c=new Character($client->getId());
+			$client->setCharacter($c);
 			$this->console("Sending Character....");
-			
 			$this->send($client, array("CHARACTER",$client->getCharacter()));
+			foreach($this->clients as $cl)
+			{
+				$this->send($client, array("CHARACTER_U",$cl->getCharacter()));
+				$this->send($cl, array("CHARACTER_U",$c));
+			}	
 		}
 		else if($action[0] == 'RES') {
 			$this->console("Sending Ressources....");
@@ -239,8 +248,11 @@ class Server {
 			$c=$client->getCharacter();
 			if(!$dir) $this->console("Invalide Move : ".$action[1]);
 			else if(move($c,$dir)) {
-				$this->console("Can Move : ".$action[1]);
-				$this->send($client, array("CHARACTER_U",$c));
+				$this->console("Can Move : ".$action[1]);				
+				foreach($this->clients as $cl)
+				{
+					$this->send($cl, array("CHARACTER_U",$c));
+				}			
 			}
 			else $this->console("Can't Move : ".$action[1]);
 		}

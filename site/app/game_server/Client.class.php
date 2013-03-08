@@ -20,7 +20,7 @@ class Client {
 	private $id;
 	private $socket;
 	private $handshake;
-	private $character;
+	public $character;
 	
 	function Client($id, $socket) {
 		$this->id = $id;
@@ -75,7 +75,7 @@ class Character {
 	private $Hand;
 	
 	function Character($name) {
-		$this->Sprite = 20;
+		$this->Sprite = rand(20,21);
 		$this->X=5;
 		$this->Y=5;
 		$this->Name=$name;
