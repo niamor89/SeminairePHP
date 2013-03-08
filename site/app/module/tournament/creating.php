@@ -7,24 +7,18 @@ if(isset($_POST['tour_validate_info'])) {
 		{
 			if(isset($_POST['tour_sum']))
 			{
-				InsertTable('T_Tournois',array('id_Tournois'=>6, 'T_Etat_Tournois_id_Etat_'=>1, 'j2'=>2, 'j3'=>3,'j4'=>4, 'j5'=>5, 'id_Chef'=>1));
+				InsertTable('T_Tournois',array('T_Etat_Tournois_id_Etat_Tournois'=>1, 'nom_Tournois'=>$_POST['tour_name'], 'date_Lancement'=>$_POST['tour_date'],'prix_Tournois'=>$_POST['tour_sum'], 'id_Createur'=>$_SESSION['/*TODO*/'])) or die("Erreur tournois non créé") ;
+				$tournois_id = mysql_query("select id_Tournois from T_Tournois where nom_Tournois = ".$_POST['tour_name']." and date_Lancement = ".$_POST['tour_date']." and id_Createur = ".$_SESSION['/*TODO*/']) or die("Erreur id tournois") ;
+				InsertTable('T_Inscription',array('T_Equipe_id_Equipe'=>1, 'T_Tournois_id_Tournois'=>$tournois_id, 'T_Etat_Inscription_id_Etat_Inscription'=>1, 'date_Inscription'=>date('l dS F Y - H:ia'))) or die("Erreur inscription non créé") ;
+				header('Location: /tournament/validate_team');
 			} else {
 				echo "Somme tournois non renseigné";
 			}
-
 		} else {
 			echo "Date tournois non renseigné";
 		}
-
 	} else {
 		echo "Nom tournois non renseigné";
 	}
-
-
 }
-
-/*InsertTable('T_Equipe',array('id_Equipe'=>6, 'j1'=>1, 'j2'=>2, 'j3'=>3,'j4'=>4, 'j5'=>5, 'id_Chef'=>1));
-InsertTable('T_Equipe',array('id_Equipe'=>6, 'j1'=>2, 'j2'=>3, 'j3'=>4,'j4'=>5, 'j5'=>6, 'id_Chef'=>1));
-PDO_Err();*/
-
 ?>
