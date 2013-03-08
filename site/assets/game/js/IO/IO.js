@@ -59,6 +59,14 @@
 		else if(action[0]=='CHARACTER'){
 			SC.Data.ENV.characters.push(action[1]); SC.IO.ws.write(['RES']);
 		}
+		else if(action[0]=='CHARACTER_U'){
+			for(var c in SC.Data.ENV.characters)
+			{
+				c = SC.Data.ENV.characters[c];
+				if(c.Name==action[1].Name) SC.Data.ENV.characters[c]=action[1];
+			}
+			
+		}
 		else if(action[0]=='RES'){
 			SC.Data.ENV.ressources=action[1];
 		}

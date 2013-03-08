@@ -60,7 +60,7 @@ class Server {
 	 */
 	private $session;
 	
-	private $ressources;
+	public $ressources;
 	
 	/**
 	 * Server constructor
@@ -224,13 +224,25 @@ class Server {
 			$this->send($client, array("MAP",$map['url_carte']));
 		}
 		else if($action[0] == 'CHARACTER') {
-			$client->setCharacter(new Character());
+			//$name = GetRow('SELECT psuedo_joueur FROM t_joueur WHERE 
+			$client->setCharacter(new Character('Hrusdik'));
 			$this->console("Sending Character....");
+			
 			$this->send($client, array("CHARACTER",$client->getCharacter()));
 		}
 		else if($action[0] == 'RES') {
 			$this->console("Sending Ressources....");
 			$this->send($client, array("RES",$this->ressources));
+		}
+		else if($action[0] == 'MOV') {
+			$dir = ($action[1]=='LEFT'?4:($action[1]=='TOP'?1:($action[1]=='RIGHT'?2:($action[1]=='BOTTOM'?3:-1))));
+			$c=$client->getCharacter();
+			if(!$dir) $this->console("Invalide Move : ".$action[1]);
+			else if(move($c,$dir)) {
+				$this->console("Can Move : ".$action[1]);
+				$this->send($client, array("CHARACTER_U",$c));
+			}
+			else $this->console("Can't Move : ".$action[1]);
 		}
 	}
 	
@@ -392,7 +404,7 @@ class Server {
 	 * @param $text the text to display
 	 * @param $exit if true, the process will exit 
 	 */
-	private function console($text, $exit = false) {
+	public function console($text, $exit = false) {
 		$text = date('[Y-m-d H:i:s] ').$text."\r\n";
 		if($exit)
 			die($text);

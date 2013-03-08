@@ -4,7 +4,7 @@
 	SC.Can.drawFPS = function () {
 		SC.ctx.fillStyle = 'rgba(120,80,130,1)';
 		SC.ctx.font = 'bold 18px Calibri';
-		SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',20,20);
+		//SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',20,20);
 	};
 	
 	SC.Can.drawGame = function () {

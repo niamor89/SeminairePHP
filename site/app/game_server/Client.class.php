@@ -66,7 +66,7 @@ class Character {
 	private $Hunger;
 	private $Restlessness;
 	private $Illness;
-	private $Name;
+	public $Name;
 	private $Inventory;
 	public $X;
 	public $Y;
@@ -74,10 +74,11 @@ class Character {
 	private $Direction;
 	private $Hand;
 	
-	function Character() {
+	function Character($name) {
 		$this->Sprite = 20;
 		$this->X=5;
 		$this->Y=5;
+		$this->Name=$name;
 	}
 	
 	//public function getSprite() { return $this->Sprite; }

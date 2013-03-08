@@ -20,6 +20,7 @@
 error_reporting(E_ALL);
 require_once 'Server.class.php';
 require_once 'Client.class.php';
+require_once 'Game_Logic.php';
 require_once __DIR__.'/../dal/dal.php';
 
 set_time_limit(0);
