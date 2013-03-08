@@ -71,7 +71,7 @@ class Character {
 	public $X;
 	public $Y;
 	private $State;
-	private $Direction;
+	public $Direction;
 	private $Hand;
 	
 	function Character($name) {
@@ -79,6 +79,7 @@ class Character {
 		$this->X=5;
 		$this->Y=5;
 		$this->Name=$name;
+		$this->Direction=3;
 	}
 	
 	//public function getSprite() { return $this->Sprite; }

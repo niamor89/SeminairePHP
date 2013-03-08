@@ -32,12 +32,20 @@ function addEvt(elemt,evt,func)
 			//alert(evt.keyCode);
 			//MOVEMENTS
 			if(SC.GL.Loading.progresion>=100) {
-				if(evt.keyCode==37) SC.IO.ws.write(['MOV','LEFT']);
-				if(evt.keyCode==39) SC.IO.ws.write(['MOV','RIGHT']);
-				if(evt.keyCode==38) SC.IO.ws.write(['MOV','TOP']);
-				if(evt.keyCode==40) SC.IO.ws.write(['MOV','BOTTOM']);
+				var c = SC.Data.ENV.characters[0];
+				if(evt.keyCode==37) {
+					SC.IO.ws.write(['MOV','LEFT']);
+				}
+				if(evt.keyCode==39) {
+					SC.IO.ws.write(['MOV','RIGHT']);
+				}
+				if(evt.keyCode==38) {
+					SC.IO.ws.write(['MOV','TOP']);
+				}
+				if(evt.keyCode==40) {
+					SC.IO.ws.write(['MOV','BOTTOM']);
+				}
 			}
-			
 			//CRAFT
 			//if(evt.keyCode==67) craft();
 			//BUILD

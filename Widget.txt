@@ -1,8 +1,8 @@
-Farah : Friends, Team
+Farah : Team
 RomainN : Shop, Currency
 Antoine : Website, User
-Ousmane : Tournament
-RomainT/Ruslan : Session
+RomainT/Ousmane : Friends, Tournament
+Ruslan : Session
 
 User:
 -login

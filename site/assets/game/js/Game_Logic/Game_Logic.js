@@ -25,28 +25,28 @@
 		SC.GL.Loading.progresion += nb || 0;
 		if(SC.GL.Step==0) {// Loading images
 			
-			if((SC.Img.sprites || SC.Img.load_sprites(function() {SC.GL.next_step(5)})) && 
-			   (SC.Img.tiles || SC.Img.load_tiles(function() {SC.GL.next_step(5)}))  && 
-			   (SC.Img.items || SC.Img.load_items(function() {SC.GL.next_step(5)}))
+			if((SC.Img.sprites || SC.Img.load_sprites(function() {SC.GL.next_step(10)})) && 
+			   (SC.Img.tiles || SC.Img.load_tiles(function() {SC.GL.next_step(10)}))  && 
+			   (SC.Img.items || SC.Img.load_items(function() {SC.GL.next_step(10)}))
 			   ) { SC.GL.Step++; SC.GL.next_step();}		
 		}
 		else if(SC.GL.Step==1) {// Try to initiate a communication
-			if(SC.IO.ws || SC.IO.init(function() {SC.GL.next_step(5)})) { SC.GL.Step++; SC.GL.next_step();}	
+			if(SC.IO.ws || SC.IO.init(function() {SC.GL.next_step(10)})) { SC.GL.Step++; SC.GL.next_step();}	
 		}
 		else if(SC.GL.Step==2) {// Loading map
 			if(SC.Data.ENV.map) { SC.GL.Step++; SC.GL.next_step(10); }
-			else var t= setTimeout('SC.GL.next_step(0);',500);
+			else var t= setTimeout('SC.GL.next_step(0);',10);
 		}
 		else if(SC.GL.Step==3) {// Loading character
-			if(SC.Data.ENV.characters.length>0) { SC.GL.Step++; SC.GL.next_step(2); }
-			else var t= setTimeout('SC.GL.next_step(0);',500);
+			if(SC.Data.ENV.characters.length>0) { SC.GL.Step++; SC.GL.next_step(20); }
+			else var t= setTimeout('SC.GL.next_step(0);',3000);
 		}
 		else if(SC.GL.Step==4) {// Loading ressources
-			if(SC.Data.ENV.ressources.length>0) { SC.GL.Step++; SC.GL.next_step(5); }
-			else var t= setTimeout('SC.GL.next_step(0);',500);
+			if(SC.Data.ENV.ressources.length>0) { SC.GL.Step++; SC.GL.next_step(20); }
+			else var t= setTimeout('SC.GL.next_step(0);',3000);
 		}
 		else {//Is actually ready, juste listen to music
-			var t = setTimeout('SC.GL.next_step(100);',1000);
+			var t = setTimeout('SC.GL.next_step(100);',10);
 		}
 		SC.Can.drawSplash();
 		if(SC.GL.Loading.progresion>=100) {

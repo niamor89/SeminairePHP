@@ -26,7 +26,7 @@
 	$('#session_start').click(function (){
 		
 		$.get('/session/check_servers&alive='+session_nb,function(data){
-			if(data==0) $.get('/session/start&new='+session_nb,function(d){document.getElementById('session_loading').innerHTML=d;});
+			if(data==0) $.get('/session/start&new='+session_nb/*,function(d){document.getElementById('session_loading').innerHTML=d;}*/);
 		});
 		
 		$('#session_loading').show();

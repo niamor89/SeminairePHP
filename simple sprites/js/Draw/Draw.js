@@ -17,7 +17,7 @@
 	};
 
 	SC.Can.drawMap = function () {
-		var img = SC.Img.tiles; //<<====== CHANGE HERE : sprites,items,tiles
+		var img = SC.Img.sprites; //<<====== CHANGE HERE : sprites,items,tiles
 	
 		SC.can.height = img.height;
 		SC.can.width = img.width;

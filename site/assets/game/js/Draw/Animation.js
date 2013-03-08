@@ -88,17 +88,55 @@
 		}
 	};
 	
-	SC.Can.Anim.sprites = new SC.Can.Anim.SpriteSheet({
+	/*SC.Can.Anim.sprites = new SC.Can.Anim.SpriteSheet({
 			sprites: [
-				{ name: 'lol' , x: 0 },
-				{ name: 'lol1', x: 1 },
-				{ name: 'lol2', x: 2 },
+				{ name: 'top1' , x: 0 },
+				{ name: 'top2', x: 1 },
+				{ name: 'bot1', x: 2 },
+				{ name: 'bot2', x: 3 },
+				{ name: 'left1', x: 4 },
+				{ name: 'left2', x: 5 },
+				{ name: 'right1', x: 6 },
+				{ name: 'right2', x: 7 },
+				{ name: 'a', x: 8 },
+				{ name: 'b', x: 9 },
+				{ name: 'c', x: 10 },
+				{ name: 'd', x: 11 },
 			]
 		});
-	SC.Can.Anim.walk = new SC.Can.Anim.Animation([
-				{ sprite: 'lol', time: 0.2 },
-				{ sprite: 'lol1', time: 0.4 },
-				{ sprite: 'lol', time: 0.2 },
-				{ sprite: 'lol2', time: 0.4 }
+	SC.Can.Anim.top = new SC.Can.Anim.Animation([
+				{ sprite: 'top1', time: 0.8 },
+				{ sprite: 'top2', time: 0.8 },
+				{ sprite: 'bot1', time: 0.8 },
+				{ sprite: 'bot2', time: 0.8 },
+				{ sprite: 'left1', time: 0.8 },
+				{ sprite: 'left2', time: 0.8 },
+				{ sprite: 'right1', time: 0.8 },
+				{ sprite: 'a', time: 0.8 },
+				{ sprite: 'b', time: 0.8 },
+				{ sprite: 'c', time: 0.8 },
+				{ sprite: 'd', time: 0.8 },
+				{ sprite: 'right2', time: 0.8 }
 	], SC.Can.Anim.sprites);
+	
+	SC.Can.Anim.bot = new SC.Can.Anim.Animation([
+				{ sprite: 'bot1', time: 0.2 },
+				{ sprite: 'bot2', time: 0.4 },
+				{ sprite: 'bot1', time: 0.2 },
+				{ sprite: 'bot2', time: 0.4 }
+	], SC.Can.Anim.sprites);
+	
+	SC.Can.Anim.left = new SC.Can.Anim.Animation([
+				{ sprite: 'left1', time: 0.2 },
+				{ sprite: 'left2', time: 0.4 },
+				{ sprite: 'left1', time: 0.2 },
+				{ sprite: 'left2', time: 0.4 }
+	], SC.Can.Anim.sprites);
+	
+	SC.Can.Anim.right = new SC.Can.Anim.Animation([
+				{ sprite: 'right1', time: 0.2 },
+				{ sprite: 'right2', time: 0.4 },
+				{ sprite: 'right1', time: 0.2 },
+				{ sprite: 'right2', time: 0.4 }
+	], SC.Can.Anim.sprites);*/
 })(SC);

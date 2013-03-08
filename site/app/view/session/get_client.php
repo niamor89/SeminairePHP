@@ -16,7 +16,7 @@
 	   Votre navigateur ne supporte pas le tag . 
 	</audio> 
 	<script>
-		//$('#session_music').get()[0].volume=0.2; $('#session_music').get()[0].play();
+		$('#session_music').get()[0].volume=0.8; $('#session_music').get()[0].play();
 		
 		var session_time_out = 5;
 		var session_alive_launch = new Date();

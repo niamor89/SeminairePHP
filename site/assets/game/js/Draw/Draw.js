@@ -16,14 +16,6 @@
 		
 		/*SC.Can.drawRessources();
 		SC.Can.drawHouses();*/
-		
-		
-		//TEST					
-		/*SC.Can.Anim.walk.animate(SC.Can.Anim.timer.getSeconds());
-		var frame = SC.Can.Anim.walk.getSprite();
-		SC.Can.drawSprite(SC.Img.sprites,frame,1,5,5);
-		SC.Can.drawSprite(SC.Img.items,1,1,5,6);
-		SC.Can.Anim.timer.tick();*/
 	};
 	
 	SC.Can.drawSplash = function () {
@@ -122,7 +114,41 @@
 		for(p in SC.Data.ENV.characters)
 		{
 			p=SC.Data.ENV.characters[p];
-			SC.Can.drawSprite(SC.Img.sprites,5,p.Sprite,p.X,p.Y);
+			var frame  = 0;
+			if(p.Direction==4)
+			{
+				frame=6;
+				/*SC.Can.Anim.left.animate(SC.Can.Anim.timer.getSeconds());
+				var frame = SC.Can.Anim.left.getSprite();
+				SC.Can.drawSprite(SC.Img.sprites,frame,p.Sprite,p.X,p.Y);
+				SC.Can.Anim.timer.tick();*/
+			}
+			else if(p.Direction==3)
+			{
+				frame=3;
+				/*SC.Can.Anim.bot.animate(SC.Can.Anim.timer.getSeconds());
+				var frame = SC.Can.Anim.bot.getSprite();
+				SC.Can.drawSprite(SC.Img.sprites,frame,p.Sprite,p.X,p.Y);
+				SC.Can.Anim.timer.tick();*/
+			}
+			else if(p.Direction==2)
+			{
+				frame=9;
+				/*SC.Can.Anim.right.animate(SC.Can.Anim.timer.getSeconds());
+				var frame = SC.Can.Anim.right.getSprite();
+				SC.Can.drawSprite(SC.Img.sprites,frame,p.Sprite,p.X,p.Y);
+				SC.Can.Anim.timer.tick();*/
+			}
+			else if(p.Direction==1)
+			{
+				frame=1;
+				
+				/*SC.Can.Anim.top.animate(SC.Can.Anim.timer.getSeconds());
+				var frame = SC.Can.Anim.top.getSprite();
+				SC.Can.drawSprite(SC.Img.sprites,frame,p.Sprite,p.X,p.Y);
+				SC.Can.Anim.timer.tick();*/
+			}
+			SC.Can.drawSprite(SC.Img.sprites,frame,p.Sprite,p.X,p.Y);
 		}
 	};
 	SC.Can.drawRessources = function () {

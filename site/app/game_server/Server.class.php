@@ -61,6 +61,8 @@ class Server {
 	private $session;
 	
 	public $ressources;
+	public $usedSprite;
+	public $gotConnection;
 	
 	/**
 	 * Server constructor
@@ -83,6 +85,10 @@ class Server {
 		$this->ressources[] = new Ressource(2,18,8,array(16,15));
 		$this->ressources[] = new Ressource(2,20,10,array(16,15));
 		$this->ressources[] = new Ressource(2,15,15,array(16,15));
+		
+		
+		$this->usedSprite=0;
+		$this->gotConnection=0;
 		/**********************************************/
 
 		// socket creation
@@ -175,6 +181,7 @@ class Server {
 	 */
 	private function disconnect($client) {
 		$this->console("Disconnecting client #{$client->getId()}");
+		
 		foreach($this->clients as $cl)
 		{
 			$this->send($cl, array("CHARACTER_D",$client->character));
@@ -192,6 +199,11 @@ class Server {
 			array_splice($this->clients, $i, 1);
 		$this->console("Client #{$client->getId()} disconnected");
 		
+		if($this->gotConnection && count($this->clients)==0)
+		{
+			ExecSQL('DELETE FROM t_serveur WHERE pid_server='.getmypid());
+			exit();
+		}
 	}
 
 	/**
@@ -230,6 +242,8 @@ class Server {
 		else if($action[0] == 'CHARACTER') {
 			//$name = GetRow('SELECT psuedo_joueur FROM t_joueur WHERE 
 			$c=new Character($client->getId());
+			$c->Sprite=($this->usedSprite?20:21);
+			$c->X=($this->usedSprite?5:6);
 			$client->setCharacter($c);
 			$this->console("Sending Character....");
 			$this->send($client, array("CHARACTER",$client->getCharacter()));
@@ -296,6 +310,8 @@ class Server {
 								//Implementer vérification de la partie et des droits du client
 								//Implementer vérification du admin et GOD_MODE
 								$this->send($client, array("READY"));
+								$this->usedSprite = ($this->usedSprite?0:1);
+								$this->gotConnection=true;
 								//$this->send($client, array("PING"));
 								/**************************************************************/
 								//$this->startProcess($client);
