@@ -2,7 +2,7 @@
 	
 	if(isset($_GET['new']))
 	{
-		//Vérifier que l'utilisateur dans $_GET['new'] a le droit de lancer un serveur
+		//Vérifier que l'utilisateur a le droit de lancer un serveur
 		//CODE
 		
 		//Créer une partie
@@ -22,7 +22,7 @@
 		} 
 		$alive = file_get_contents_utf8('http://'.$_SERVER['HTTP_HOST'].'/session/check_servers&alive='.$_GET['new']);
 		echo $alive;
-		echo 'start php -q '.__DIR__.'\..\..\game_server\new_server.php '.$_GET['new'];
+		//echo 'start php -q '.__DIR__.'\..\..\game_server\new_server.php '.$_GET['new'];
 		if($alive==0) pclose(popen('start php -q '.__DIR__.'\..\..\game_server\new_server.php '.$_GET['new'], "r"));
 		$context['no_render']=true;
 	}

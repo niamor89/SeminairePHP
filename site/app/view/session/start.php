@@ -6,7 +6,7 @@
 </div>
 <script>
 	var session_time_out = 15;
-	var session_alive_launch = new Date();
+	var session_alive_launch;
 	var session_nb = 1; //récupérer ici la partie du joueur
 	
 	function server_alive() {
@@ -25,11 +25,12 @@
 	
 	$('#session_start').click(function (){
 		
-		$.get('/session/check_servers',function (){
-			$.get('/session/start&new='+session_nb/*,function(d){document.getElementById('session_loading').innerHTML=d;}*/);
+		$.get('/session/check_servers&alive='+session_nb,function(data){
+			if(data==0) $.get('/session/start&new='+session_nb,function(d){document.getElementById('session_loading').innerHTML=d;});
 		});
 		
 		$('#session_loading').show();
+		session_alive_launch = new Date();
 		server_alive();
 	});
 </script>

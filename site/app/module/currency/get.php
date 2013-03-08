@@ -11,7 +11,11 @@
 	*/
 	
 	//Assume current user is logged in.
+<<<<<<< HEAD
 	$successful_login = check_if_connected();
+=======
+	$successful_login = 1;
+>>>>>>> a7eb06f53eccfe53b5b45818ee6ed7702f650088
 	
 	if ($successful_login){
 		

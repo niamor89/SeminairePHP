@@ -16,15 +16,26 @@ function account_exist($pseudo,$mdp)
 
 function update_avatar($file_path)
 {
-	$nb = UpdateTable('t_joueur',array('file_path'=>$file_path),'pseudo_Joueur="antoine"');
-	//$nb = UpdateTable('t_joueur',array('file_path'=>$file_path),'pseudo_Joueur="'.$_SESSION['pseudo_user'].'"');
-	return $row;
+	$nb = UpdateTable('t_joueur',array('file_path'=>$file_path),'pseudo_Joueur="'.$_SESSION["pseudo"].'"');
+	return $nb;
 }
 
 function get_info()
 {
-	$row = GetRow('SELECT * FROM t_joueur WHERE pseudo_Joueur="'.$_SESSION['pseudo_user'].'";');
+	$row = GetRow('SELECT * FROM t_joueur WHERE pseudo_Joueur="'.$_SESSION["pseudo"].'";');
 	return $row;
+}
+
+function update_mail($mail)
+{
+	$nb = UpdateTable('t_joueur',array('mail_Joueur'=>$mail),'pseudo_Joueur="'.$_SESSION["pseudo"].'"');
+	return $nb;
+}
+
+function update_mdp($mdp)
+{
+	$nb = UpdateTable('t_joueur',array('mdp'=>md5($mdp)),'pseudo_Joueur="'.$_SESSION["pseudo"].'"');
+	return $nb;
 }
 
 ?>

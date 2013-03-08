@@ -1,3 +1,7 @@
+<div>
+	<label> Please wait during your friends coming </label>
+</div>
+
 <div id="createteam">
 	<table border=1>
 		<?php 
@@ -12,4 +16,8 @@
 			}
 			?>
 	</table>
+</div>
+
+<div>
+	<div class="leavequeuebutton" value="leave_queue" onclick="self.location.href='leave_team'"><button>Leave Team</button></div></td>
 </div>

@@ -1,0 +1,42 @@
+/* ------------------ Widget Friends ---------------- */
+
+/* Action Add */
+#addfriend #searchbar				{ margin-top : 4%; margin-bottom : 5%;}
+#addfriend #searchfriend				{ margin-top : 4%; margin-bottom : 4%; margin-left : 30%; }	
+#addfriend #searchfriend .findPseudo	{ margin-top : 4%; margin-bottom : 4%; margin-left : 20%;  text-align:left; }	
+#addfriend #searchfriend .addbutton	{ margin-top : 4%; margin-bottom : 4%; margin-left : 50%; }	
+
+/* Action Display */
+#displayfriend						{ margin-top : 4%; margin-bottom : 4%; margin-left : 30%; }
+#displayfriend .displaypseudo		{ margin-top : 4%; margin-bottom : 4%; margin-left : 20%; text-align:left; }	
+#displayfriend .removebutton			{ margin-top : 4%; margin-bottom : 4%; margin-left : 50%; }	
+
+
+/* ------------------ Widget Team ---------------- */
+
+/* Action Create Team */
+#createteam							{ margin-top : 4%; margin-bottom : 4%; margin-left : 30%; }
+#createteam .createteampseudo		{ margin-top : 4%; margin-bottom : 4%; margin-left : 20%; text-align:left; }	
+#createteam .farahstatut 			{ margin-top : 6%; margin-bottom : 6%; margin-left : 50%; background-color : #b47840; height :20px }
+
+/* Action Create Queue */
+#createqueue 						{ margin-top : 4%; margin-bottom : 4%; margin-left : 30%; }
+#createqueue .queuepseudo			{ margin-top : 4%; margin-bottom : 4%; margin-left : 20%; text-align:left; }	
+#createqueue .farahcheckbox			{ margin-top : 4%; margin-bottom : 4%; margin-left : 90%; }
+
+/* Action Show Requests */
+#showrequests						{ margin-top : 4%; margin-bottom : 4%; margin-left : 30%; }
+#showrequests .creatorpseudo			{ margin-top : 4%; margin-bottom : 4%; margin-left : 20%; text-align:left; }
+#showrequests .jointeambutton		{ margin-top : 0%; margin-bottom : 4%; margin-left : 50%; }	
+#showrequests .leavequeuebutton		{ margin-top : 4%; margin-bottom : 7%; margin-left : 50%; }	
+
+.farahavatar
+{
+	margin-left : 1px;
+	position :relative;
+	display: inline;
+	background-color : #ffffff;
+	color : #7b5641;
+	border : 10px;
+	border-color : #7b5641;
+}

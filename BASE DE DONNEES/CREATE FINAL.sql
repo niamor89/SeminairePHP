@@ -255,7 +255,7 @@ INSERT INTO `t_partie` (`id_Partie`, `T_Tournois_id_Tournois`, `T_Carte_id_Carte
 --
 
 CREATE TABLE IF NOT EXISTS `t_produit` (
-  `id_Produit` int(10) unsigned NOT NULL,
+  `id_Produit` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nom_Produit` varchar(100) NOT NULL,
   `in_Game` int(1) unsigned DEFAULT NULL,
   `prix_Produit` int(10) unsigned DEFAULT NULL,

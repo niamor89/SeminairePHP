@@ -266,9 +266,9 @@ class Server {
 		$this->console('PID : '.getmypid());
 		$this->console('SESSION : '.$this->session);	
 		// BEFORE RUNNING =============
-		ExecSQL('DELETE FROM t_server WHERE pid_server='.getmypid().';');
-		InsertTable('t_server',array('pid_server'=>getmypid(),'id_partie'=>$this->session));
-		
+		ExecSQL('DELETE FROM t_serveur WHERE pid_server='.getmypid().';');
+		$this->console('ADD SERVER : '.InsertTable('t_serveur',array('pid_server'=>getmypid(),'T_Partie_id_Partie'=>$this->session)));
+		$this->console(print_r(PDO_Err(true),true));
 		// END OF BEFORE RUNNING =============
 		while(true) {
 			$changed_sockets = $this->sockets;
