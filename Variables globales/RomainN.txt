@@ -1,0 +1,4 @@
+$_SESSION["id_user"]
+	L'id de l'user si il est connecté (cette variable n'existe pas sinon)
+$_SESSION["pseudo"]
+	Le pseudo du jouer s'il est connecté (cette variable n'existe pas sinon)
