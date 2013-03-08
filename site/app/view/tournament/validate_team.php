@@ -32,14 +32,15 @@ Date : <?php echo date('l dS F Y - H:ia');?>
 </br>
 Payment Type :
 <div class="tour_payment">
-	<form method="post" action="/tournament/validate_team">
-		<img src="/assets/img/paypal_logo.png" > <input type="radio" name="tour_payment_type" value="paypal" checked>     
+	<form method="POST" action="/tournament/validate_team">
+		<img src="/assets/img/paypal_logo.png" > <input type="radio" name="tour_payment_type" value="paypal">     
 		<img src="/assets/img/cb_logo.png" "><input type="radio" name="tour_payment_type" value="cb">
 		<input type ="submit" name ="tour_payment" value="Choose">
 	</form>
 </div>
 
 <?php
+	if (isset($_POST['tour_payment'])) {
 	echo"</br> The type is : ".$tour_payment_type;
 
 	if($tour_payment_type == "cb")
@@ -81,5 +82,5 @@ Payment Type :
 		<form method="post" action="/tournament/validate_team">
 		<input type ="submit" name ="tour_validate_payment" value="Pay">
 		</form>
-	<?php }
+	<?php }}
 ?>
