@@ -84,16 +84,7 @@ if (null != $out)
 					<div id="connection">
 						<?php
 							//Check connection status
-							if(isset($_POST["f_login_submit"])) {
-								if (login($_POST["f_login_pseudo"], $_POST["f_login_password"])) {
-									echo render_action("user/logout");
-								}else{
-									$context["connection_attempt"] = 1;
-									echo render_action("user/login");
-								}
-							} else {
-								echo render_action("user/check_log");
-							}
+							echo render_action("user/login");
 						?>
 					</div>
 				</header>
