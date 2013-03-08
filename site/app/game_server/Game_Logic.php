@@ -3,25 +3,25 @@
 		if(!can_move($char,$dir)) return false;
 		//player.etat = 8;
 		if($dir==4) { // GAUCHE
-			if($char->X-1>0) {
+			if($char->X-1>=0) {
 				$char->X--;
 				//player.direction = 3;
 			}
 		}
 		if($dir==2) { // DROITE
-			if($char->X+1<26) {
+			if($char->X+1<25) {
 				$char->X++;
 				//player.direction = 1;
 			}
 		}
 		if($dir==1) { // HAUT
-			if($char->Y-1>0) {
+			if($char->Y-1>=0) {
 				$char->Y--;
 				//player.direction = 2;
 			}
 		}
 		if($dir==3) { // BAS
-			if($char->Y+1<17) {
+			if($char->Y+1<16) {
 				$char->Y++;
 				//player.direction = 0;
 			}

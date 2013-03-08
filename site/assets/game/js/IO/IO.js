@@ -34,8 +34,10 @@
 			SC.IO.ws.onclose = function(msg) {
 				if(this.readyState == 2)
 					SC.IO.debug('Closing... The connection is going throught the closing handshake (readyState '+this.readyState+')');
-				else if(this.readyState == 3)
+				else if(this.readyState == 3) {
 					SC.IO.debug('Connection closed... The connection has been closed or could not be opened (readyState '+this.readyState+')');
+					server_alive();
+				}
 				else
 					SC.IO.debug('Connection closed... (unhandled readyState '+this.readyState+')');
 			};
@@ -62,8 +64,8 @@
 		else if(action[0]=='CHARACTER_U'){
 			for(var c in SC.Data.ENV.characters)
 			{
-				c = SC.Data.ENV.characters[c];
-				if(c.Name==action[1].Name) SC.Data.ENV.characters[c]=action[1];
+				SC.Data.ENV.characters[c];
+				if(SC.Data.ENV.characters[c].Name==action[1].Name) SC.Data.ENV.characters[c]=action[1];
 			}
 			
 		}
