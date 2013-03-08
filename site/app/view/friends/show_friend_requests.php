@@ -1,3 +1,7 @@
+<?php global $displaytab;
+$displaytab = farah_register_function();
+?>
+
 <div id="displayfriend">
 	<table border=1>
 		<?php 
@@ -10,7 +14,7 @@
 						<script language="Javascript">
 							function ok()
 							{
-								resultat=window.confirm('Reject demand?');
+								resultat=window.confirm('Accept demand?');
 								if(resultat =="1")
 								{
 									window.history.go()
