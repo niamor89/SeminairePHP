@@ -10,8 +10,7 @@
 	**		$successful_login
 	*/
 	
-	//Assume current user is logged in.
-	$successful_login = 1;
+	$successful_login = check_if_connected();
 	
 	if ($successful_login){
 		
