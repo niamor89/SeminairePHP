@@ -11,7 +11,7 @@
 			<input type="submit" name="f_login_submit" value="Envoyer" />
 		</div>
 	</form>
-	<?php if ($display_login_fail == 1) { ?>
+	<?php if ($display_login_error == 1) { ?>
 		<div id="login_fail_error_msg">
 			Erreur de login ou de mot de passe
 		</div>

@@ -8,17 +8,20 @@
 		$row = account_exist($_POST['f_login_pseudo'], md5($_POST['f_login_password']));
 		if (isset($row['pseudo_Joueur']))
 		{
-			$_SESSION['pseudo'] = "Test";
+			$_SESSION['pseudo'] = $row["pseudo_Joueur"];
+			$_SESSION['id_user'] = $row["id_Joueur"];
 			return 1;
 		}
 		else
 		{
-			// return 0;
-			//Assume it is a success
-			$_SESSION['pseudo'] = "Test";
-			return 1;
+			return 0;
 		}
 	}
+	
+	
+	
+	
+	
 	
 	
 /*			paypal_display_form
