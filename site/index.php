@@ -74,8 +74,8 @@ if (null != $out)
 							<div id="menu_entries">
 								<a href="/website/index"><div class="menu_entry"><img class="menu_icon" id="home"		src="/assets/img/std.png"/><span class="title">Accueil</span></div></a>
 								<a href="/session/start">	<div class="menu_entry"><img class="menu_icon" id="new_game"	src="/assets/img/std.png"/><span class="title">Nouvelle Partie</span></div></a>
-								<a href="/tournament/show"><div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div></a>
-								<a href="/tournament/scores"><div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div></a>
+								<a href="#"><div class="menu_entry"><img class="menu_icon" id="tournament"	src="/assets/img/std.png"/><span class="title">Tournois</span></div></a>
+								<a href="#"><div class="menu_entry"><img class="menu_icon" id="classment"	src="/assets/img/std.png"/><span class="title">Classement</span></div></a>
 								<a href="/shop/get"><div class="menu_entry"><img class="menu_icon" id="shop"		src="/assets/img/std.png"/><span class="title">Boutique</span></div></a>
 								<a href="/currency/get"><div class="menu_entry"><img class="menu_icon" id="buy"			src="/assets/img/std.png"/><span class="title">Acheter des SC</span></div></a>
 							</div>
@@ -97,6 +97,9 @@ if (null != $out)
 			<div id="footer">
 				<footer>
 					Copyleft &#169; Survival Camp 2013
+					<div id="pub">
+						<img src="/assets/img/pub.png" />
+					</div>
 				</footer>
 			</div>
 		</div>
