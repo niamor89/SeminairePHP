@@ -33,7 +33,7 @@
 			//Create a command history
 			$shop_buy_success = InsertTable('T_Commande',array('T_Produit_id_Produit'=>$_GET["shop_buy_item_id"],'T_Joueur_id_Joueur'=>$_SESSION["id_user"],'date_Commande'=>'CURDATE()'));
 						
-			var_dump($shop_buy_success);			
+			// var_dump($shop_buy_success);			
 			
 			if ($shop_buy_success == 1){
 				$display_shop_buy_success = 1;
