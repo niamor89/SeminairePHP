@@ -44,3 +44,5 @@
 #content #shop_bufftab {display:none;}
 
 #content #index_inscription_button {position:absolute; top:450px; left:40px;}
+
+#content #paypal_form {display:none; background-color:white; position:absolute; left:400px; top:-5px; width:300px; height:120px; z-index:100}

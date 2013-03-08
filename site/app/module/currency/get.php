@@ -1,7 +1,9 @@
 <?php
 	
 	$context["title"] = "Boutique Survival Coins";
-	$display_currency_get = 0;
+	$display_currency_get_form = 0;
+	$display_currency_get_success = 0;
+	$display_currency_get_fail = 0;
 	
 	/*	Insert code for checking user authentication here.
 	**	output required:
@@ -11,31 +13,26 @@
 	//Assume current user is logged in.
 	$successful_login = 1;
 	
-	if($successful_login == 1) {
-		//Show the requested view.
-		if (!isset($_POST["currency_action"])) {
+	if ($successful_login){
 		
-			//No action asked, display the "get" view
-			$display_currency_get = 1;
+		if(isset($_POST["f_currency_get_submit"])) {
+		
+			//We suppose the paypal fields have been validated by Paypal 
 			
-			//Assume an admin is online
-			$is_admin = 1;
-			
-			//And give it some content (need to be json-ed)
-			$currency_get_contentlist = array(
-				array("image1.gif","100","Pack newbee"),
-				array("image2.gif","500","Pack boloss"),
-				array("image3.gif","1000","Pack normal"),
-				array("image4.gif","3000","Pack pigeon")
-			);
+			$nb = ExecSQL("UPDATE `T_Joueur` SET survivalCoin = survivalCoin + ".$_POST["f_currency_get_survival_coins"]);
+			if($nb != 1){
+				$display_currency_get_fail = 1;
+			}else{
+				$display_currency_get_success = 1;
+			}
 			
 		} else {
 		
-			//A special view has been asked
-			header("Location: /currency/".$_POST["currency_action"]);
+			//Form not submitted: display it
+			$display_currency_get_form = 1;
 			
 		}
+		
 	}
-	
 
 ?>
