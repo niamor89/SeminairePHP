@@ -1,20 +1,10 @@
 <?php 
-	$searchtab = array();
-	
-	//$search = $_POST['search'];
-	
-	$searchtab[0] = "Farah";
-	$searchtab[1] = "Romain N";
-	$searchtab[2] = "Antoine";
-	$searchtab[3] = "Ruslan";
-	$searchtab[4] = "Romain T";
-	$searchtab[5] = "Oussmane";
-	
-	/*for($i=0;$i<count($searchtab);$i++)
-	{
-		if ($search == $tab[$i])
-		{
-			echo $search;
+
+	$context["title"] = "Create Tour";
+	if(isset($_POST['friends_research'])) {
+		if($_POST['search'] != "") {
+			$friend = GetRow('SELECT id_Joueur, pseudo_Joueur FROM t_joueur WHERE pseudo_Joueur = '.$_POST['search']) or die ('could not get friend');
 		}
-	}*/
+	}
+
 ?>

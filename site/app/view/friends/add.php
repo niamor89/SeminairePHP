@@ -1,4 +1,4 @@
-<script language="Javascript">
+﻿<script language="Javascript">
 	function visibilite(thingId)
 	{
 		var targetElement;
@@ -26,48 +26,32 @@
 	}
 </script>
 
-<?php global $tab;
-$tab = farah_register_function();
-?>
 
 <div id="addfriend">
 	<div id="searchbar">
 			<form method="POST" action="/friends/add">
-			<input type="text" value="<?php $bar="Friend pseudo"?>" name="search" id="searching"/>
-			<button>Search</button>
-			
+				<input type="text" name="search" id="searching"/>
+				<input type ="submit" name ="friends_research" class="button_wooden" value="Search">
+			</form>			
 	</div>
+	
 	<div id="searchfriend">
 			<?php
-				global $tmpplayer;
-
-				if (isset($_POST["search"]))
-				{
-					$searchplayer = $_POST["search"];
-
-					foreach($tab as $joueur)
-					{
-						foreach($joueur as $k=>$v)
-						
-						if ($searchplayer == $v)
-						{ 
-						 
-							if ( $tmpplayer != $searchplayer )
-							{ 
-								$tmpplayer = $searchplayer; ?>				
+				if (isset($friend)) {
+					if ($friend != -1) {
+					?>
 								<table border=1>
 								<tr> 
 									<td class="farahavatar"> A </td>
-									<td> <div id ="joueur" class ="findPseudo" ><?php echo $searchplayer; ?></div></td>
+									<td> <div id ="joueur" class ="findPseudo" > <?php echo $friend->pseudo_Joueur ?> </div></td>
 									<td><div class="addbutton" onclick="okrequest();"><button>Add Friend</button></div></td>
 								</tr>
 								</table>
-							<?php
-							}
-						}
-							
+					<?php 
+						} else {
+						echo ('Joueur non trouvé');
 					}
 				}
-				?>
+			?>				
 	</div>
 </div>
