@@ -76,7 +76,7 @@
 			<label for="birthday">Date de naissance :</label>
 		</div>
 		<div class=right>
-			<input type="date" name="birthday" id="birthday" />
+			<input type="date" name="birthday" id="birthday" value="1990-01-01" required/>
 		</div>
 		
 		<br />

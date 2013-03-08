@@ -13,6 +13,8 @@ if ($nb == 1)
 else // Sinon, on affiche un message d'erreur
 			{
 				echo '<p>Erreur</p>';
+				PDO_Err();
+				PDO_Qry();
 			}
 
  /*
