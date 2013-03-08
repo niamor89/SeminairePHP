@@ -23,3 +23,7 @@ $row = get_info();
 	<input type="submit" value="Envoyer" class=button_wooden> 
 </div>
 </form>
+
+<div>
+ montant de SC : <?php echo $row['survivalCoin'] ?>
+</div>
