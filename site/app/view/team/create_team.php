@@ -17,3 +17,7 @@
 			?>
 	</table>
 </div>
+
+<div>
+	<div class="leavequeuebutton" value="leave_queue" onclick="self.location.href='leave_team'"><button>Leave Team</button></div></td>
+</div>
