@@ -80,7 +80,7 @@ Payment Type :
 	{
 		echo"</br>Normal Paypal information";?>
 		<form method="post" action="/tournament/validate_team">
-		<input type ="submit" class="button_wooden" name ="tour_validate_payment" value="Pay">
+			<input type ="submit" class="button_wooden" name ="tour_validate_payment" value="Pay">
 		</form>
 	<?php }}
 ?>
