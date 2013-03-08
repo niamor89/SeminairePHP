@@ -1,3 +1,7 @@
+<div>
+	<label> Please wait during your friends coming </label>
+</div>
+
 <div id="createteam">
 	<table border=1>
 		<?php 
