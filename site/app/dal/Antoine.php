@@ -7,11 +7,4 @@ function add_user($pseudo, $mdp, $prenom, $nom, $mail, $tel, $adresse, $ville, $
 	return $nb;
 }
 
-
-function account_exist($pseudo,$mdp)
-{
-	$row = GetRow('SELECT * FROM t_joueur WHERE pseudo_Joueur="'.$pseudo.'" AND mdp="'.$mdp.'";');
-	return $row;
-}
-
 ?>
