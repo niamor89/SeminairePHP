@@ -1,4 +1,4 @@
-﻿<form method="post" action="create_user">
+﻿<form method="post" action="/user/create_user">
 
 		<div class=left>
 			<label for="pseudo">Pseudo :</label>

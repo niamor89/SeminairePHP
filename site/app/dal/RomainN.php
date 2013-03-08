@@ -1,24 +1,23 @@
 <?php
 
-/*			OLDpaypal_display_form
-**	
-**	Genere un formulaire comprenant des champs a renseigner. Renvoie sur la page
-**	indiquee par $url. Cette page aura acces à la variable POST "salestate"
-**	qui vaudra 1 afin de simuler la validation de paypal.
-**
-**	$url (string):
-**		Chaine indiquant l'url où paypal redirige (ex: /currency/buy)
+/*			login (pseudo, password)
+**	Connecte un utilisateur
 */
-
-	function OLDpaypal_display_form ($url) {
-		return "
-			<form method='POST' action='".$url."'>
-				<input type='hidden' name='salestate' value='1'/>
-				<div class='paypal_text'><p>Numero de compte PayPal: <input type='text' name='input1'/></div>
-				<div class='paypal_pass'><p>Mot de passe: <input type='password' name='input2'/></div>
-				<input type='submit' value='Ok'/>
-			</form>
-		";
+	
+	function login($pseudo, $password) {
+		$row = account_exist($_POST['f_login_pseudo'], md5($_POST['f_login_password']));
+		if (isset($row['pseudo_Joueur']))
+		{
+			$_SESSION['pseudo'] = "Test";
+			return 1;
+		}
+		else
+		{
+			// return 0;
+			//Assume it is a success
+			$_SESSION['pseudo'] = "Test";
+			return 1;
+		}
 	}
 	
 	

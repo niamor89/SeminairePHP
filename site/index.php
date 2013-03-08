@@ -1,4 +1,5 @@
 ﻿<?php 
+session_start();
 $context = array();
 
 function render_action($route) {
@@ -32,14 +33,6 @@ if($_SERVER['REQUEST_URI']=='/') {
 
 include __DIR__.'/app/dal/dal.php';
 $out = render_action($_GET['action']);
-
-	//Account verification
-	if (isset($_SESSION['pseudo'])) {
-		$identification_window = render_action('user/logout');
-	}
-	else {
-		$identification_window = render_action('user/login');
-	}
 
 if (null != $out)
 {
@@ -89,7 +82,19 @@ if (null != $out)
 						</nav>
 					</div>
 					<div id="connection">
-						<?php echo $identification_window; ?>
+						<?php
+							//Check connection status
+							if(isset($_POST["f_login_submit"])) {
+								if (login($_POST["f_login_pseudo"], $_POST["f_login_password"])) {
+									echo render_action("user/logout");
+								}else{
+									$context["connection_attempt"] = 1;
+									echo render_action("user/login");
+								}
+							} else {
+								echo render_action("user/check_log");
+							}
+						?>
 					</div>
 				</header>
 			</div>

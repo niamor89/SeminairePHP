@@ -61,6 +61,10 @@
 	</div>
 </div>
 
+<div id="index_inscription_button">
+	<a href="/user/signup"><button class="button_wooden">Inscrivez vous!</button></a>
+</div>
+
 <div>
 	<p id="index_description">
 		<i>Survival Camp</i> est un jeu de survie en temps réel. <br/><br/>

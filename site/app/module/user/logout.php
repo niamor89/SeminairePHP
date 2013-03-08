@@ -1,7 +1,13 @@
 <?php
+
+	$display_logout_confirm = 0;
+	$display_logout_infos = 0;
 	
-	//Create false credentials for debugging purposes
-	$user_pseudo = $context["user_pseudo"];
-	$user_avatar = "user_avatar_url";
+	if(isset($_GET["logoutconfirm"])) {
+		unset($_SESSION["pseudo"]);
+		$display_logout_confirm = 1;
+	} else {
+		$display_logout_infos = 1;
+	}
 	
 ?>
