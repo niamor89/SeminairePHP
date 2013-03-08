@@ -1,3 +1,57 @@
+div.left,div.right
+{
+position:relative;
+left:20%;
+}
+
+table#shop_itemtab,div.shop_add_form
+{
+position:relative;
+left:100px;
+top:10px;
+width:700px;
+min-height:150px;
+text-align:center;
+vertical-align:center;
+}
+
+/*BUTTON*/
+button#shop_but_bufftab,button#shop_but_itemtab,div.leavequeuebutton,div.jointeambutton,input[type='submit']{
+-moz-box-shadow:inset 1px 1px 0px 0px #e6a605;
+	-webkit-box-shadow:inset 1px 1px 0px 0px #e6a605;
+	box-shadow:inset 1px 1px 0px 0px #e6a605;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5c3000), color-stop(1, #e68a00) );
+	background:-moz-linear-gradient( center top, #5c3000 5%, #e68a00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5c3000', endColorstr='#e68a00');
+	background-color:#5c3000;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	border:1px solid #3d2401;
+	display:inline-block;
+	color:#000000;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #522e02; 
+	cursor:pointer;
+}
+
+button#shop_but_bufftab:hover,button#shop_but_itemtab:hover,div.leavequeuebutton:hover,div.jointeambutton:hover,input[type='submit']:hover{
+background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e68a00), color-stop(1, #5c3000) );
+	background:-moz-linear-gradient( center top, #e68a00 5%, #5c3000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e68a00', endColorstr='#5c3000');
+	background-color:#e68a00;
+}
+button#shop_but_bufftab:active,button#shop_but_itemtab:active,div.leavequeuebutton:active,div.jointeambutton:active,input[type='submit']:active{
+	position:relative;
+	top:1px;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 /* SESSION/START */
 #session {
 	height:100%;
@@ -41,6 +95,7 @@
 	margin-left:3px;
 	text-align:left;
 	font-size:10px;
+	display:none;
 }
 
 /* ADMIN/INDEX */
