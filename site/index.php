@@ -1,4 +1,4 @@
-<?php 
+ï»¿<?php 
 $context = array();
 
 function render_action($route) {
@@ -33,6 +33,14 @@ if($_SERVER['REQUEST_URI']=='/') {
 include __DIR__.'/app/dal/dal.php';
 $out = render_action($_GET['action']);
 
+	//Account verification
+	if (isset($_SESSION['pseudo'])) {
+		$identification_window = render_action('user/logout');
+	}
+	else {
+		$identification_window = render_action('user/login');
+	}
+
 if (null != $out)
 {
 ?>	
@@ -43,8 +51,8 @@ if (null != $out)
 	<head>
 		<meta charset="UTF-8"/>
 		<title><?php echo $context["title"] ?></title>
-		<meta name="keywords" content="Survival Camp, jeu, coopération" />
-		<meta name="description" content="Survival Camp : Jouez en coopération avec vos amis et participez aux tournois pour gagner de l'argent !" />
+		<meta name="keywords" content="Survival Camp, jeu, coopÃ©ration" />
+		<meta name="description" content="Survival Camp : Jouez en coopÃ©ration avec vos amis et participez aux tournois pour gagner de l'argent !" />
 		
 		<link href="/assets/styles/default/style.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/styles/default/Farah.css" rel="stylesheet" type="text/css" />
@@ -81,18 +89,7 @@ if (null != $out)
 						</nav>
 					</div>
 					<div id="connection">
-						<div id="connection_title">
-							CONNEXION
-						</div>
-						<form id ="connection_form">
-							<div id ="connection_top">
-								<input type="text" name="f_login_pseudo" value="Login"/>
-								<input type="password" name="f_login_password" value="Password"/>
-							</div>
-							<div id ="connection_bottom">
-								<input type="submit" value="Envoyer" />
-							</div>
-						</form>
+						<?php echo $identification_window; ?>
 					</div>
 				</header>
 			</div>

@@ -4,14 +4,13 @@
 	$request_display = 0;
 
 	//Check if someone tried to log in
-	if (isset($_POST["f_login_pseudo"]) && isset($_POST["f_login_password"])) {
+	if (isset($_SESSION['pseudo'])) {
 		
 		//Insert magic here, like starting sessions and shit
 		
 		//Lets admit someone suscessfully logged in. Create false credentials and call the view "logout"
 		$context["successful_login"] = 1;
-		$context["user_pseudo"] = $_POST["f_login_pseudo"];
-		echo render_action("user/logout");
+		$context["user_pseudo"] = $_SESSION['pseudo'];
 	
 	} else {
 	

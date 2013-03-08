@@ -1,9 +1,16 @@
 <?php if ($request_display == 1) { ?>
-	<form method="post" action="/website/index">
 
-		<input type="text" name="f_login_pseudo"/>
-		<input type="password" name="f_login_password"/>
-		<input type="submit" value="Okay..." />
+	<div id="connection_title">
+		CONNEXION
+	</div>
+	<form method="post" action="connect">
+		<div id ="connection_top">
+			<input type="text" name="f_login_pseudo" value="Login"/>
+			<input type="password" name="f_login_password" value="Password"/>
+		</div>
+		<div id ="connection_bottom">
+			<input type="submit" value="Envoyer" />
+		</div>
 
 	</form>
 <?php } ?>
