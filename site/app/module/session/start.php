@@ -22,6 +22,7 @@
 		} 
 		$alive = file_get_contents_utf8('http://'.$_SERVER['HTTP_HOST'].'/session/check_servers&alive='.$_GET['new']);
 		echo $alive;
-		if(!$alive) pclose(popen('start php -q '.__DIR__.'\..\..\game_server\new_server.php '.$_GET['new'], "r"));
+		echo 'start php -q '.__DIR__.'\..\..\game_server\new_server.php '.$_GET['new'];
+		if($alive==0) pclose(popen('start php -q '.__DIR__.'\..\..\game_server\new_server.php '.$_GET['new'], "r"));
 		$context['no_render']=true;
 	}

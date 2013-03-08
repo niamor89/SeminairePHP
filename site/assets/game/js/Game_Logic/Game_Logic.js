@@ -15,7 +15,6 @@
 		
 		SC.Can.drawGame();
 		
-		SC.Can.drawFPS();
 		var t = setTimeout('SC.GL.Game_Loop()',30);
 	};
 	
@@ -56,63 +55,8 @@
 		}			
 		
 	};
-	
-	SC.GL.move = function (dir) { //dir : 1 = top, 2 = right, 3 = bottom, 4 = left	
-		player.etat = 8;
-		if(dir==4) { // GAUCHE
-			if(player.x-1>0) {
-				if(can_move(dir)) player.x--;
-				player.direction = 3;
-			}
-		}
-		if(dir==2) { // DROITE
-			if(player.x+1<17) {
-				if(can_move(dir)) player.x++;
-				player.direction = 1;
-			}
-		}
-		if(dir==1) { // HAUT
-			if(player.y-1>0) {
-				if(can_move(dir)) player.y--;
-				player.direction = 2;
-			}
-		}
-		if(dir==3) { // BAS
-			if(player.y+1<17) {
-				if(can_move(dir)) player.y++;
-				player.direction = 0;
-			}
-		}	
-	};
 
-	SC.GL.can_move = function (dir) { //dir : 1 = top, 2 = right, 3 = bottom, 4 = left
-		var x;
-		var y;
-		if(dir==1) {
-			x = player.x;
-			y = player.y-1;
-		}
-		if(dir==2) {
-			x = player.x +1;
-			y = player.y;
-		}
-		if(dir==3) {
-			x = player.x;
-			y = player.y +1;
-		}
-		if(dir==4) {
-			x = player.x -1;
-			y = player.y;
-		}
-		
-		var i;
-		for(i=0;i<ressources.length;i++) if(ressources[i].x==x && ressources[i].y == y) return false;
-		for(i=0;i<houses.length;i++) if(houses[i].x==x && houses[i].y == y) return false;
-		
-		return true;
-	};
-
-	SC.GL.craft = function () {
+	/*SC.GL.craft = function () {
 		var x;
 		var y;
 		if(player.direction==0) { //player.direction : 0 = face, 1 = droite, 3 = gauche, 2 = dos 
@@ -198,5 +142,5 @@
 			document.getElementById('rock').innerHTML = player.rock;
 			houses.push(new House(x,y));
 		}
-	};
+	};*/
 })(SC);

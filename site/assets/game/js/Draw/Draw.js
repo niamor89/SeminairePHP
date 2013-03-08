@@ -1,12 +1,6 @@
 (function (SC) {
 	SC.Can = {}; // Namespace de dessin dans le canvas
 	
-	SC.Can.drawFPS = function () {
-		SC.ctx.fillStyle = 'rgba(120,80,130,1)';
-		SC.ctx.font = 'bold 18px Calibri';
-		//SC.ctx.fillText(parseInt(++SC.FPS.Count / ( ((+new Date) - SC.FPS.last_sec) / 1000 ))+' FPS',20,20);
-	};
-	
 	SC.Can.drawGame = function () {
 		
 		SC.ctx.clearRect(0,0,SC.can.height,SC.can.width);
@@ -19,6 +13,7 @@
 		SC.Can.drawMenu();
 		
 		SC.Can.drawPlayers();
+		
 		/*SC.Can.drawRessources();
 		SC.Can.drawHouses();*/
 		
@@ -123,14 +118,16 @@
 	};
 
 	SC.Can.drawPlayers = function () {
-		for(var p in SC.Data.ENV.characters)
+		var p;
+		for(p in SC.Data.ENV.characters)
 		{
 			p=SC.Data.ENV.characters[p];
 			SC.Can.drawSprite(SC.Img.sprites,5,p.Sprite,p.X,p.Y);
 		}
 	};
 	SC.Can.drawRessources = function () {
-		for(var r in SC.Data.ENV.ressources)
+		var r;
+		for(r in SC.Data.ENV.ressources)
 		{
 			r=SC.Data.ENV.ressources[r];
 			SC.Can.drawSprite(SC.Img.tiles,r.Sprite[0],r.Sprite[1],r.X,r.Y);

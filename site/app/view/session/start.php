@@ -5,16 +5,17 @@
 	</div>
 </div>
 <script>
-	var session_time_out = 5;
+	var session_time_out = 10;
 	var session_alive_launch = new Date();
 	var session_nb = 1; //récupérer ici la partie du joueur
 	
 	function server_alive() {
-		$.get('/session/start&alive='+session_nb,function(data){
+		$.get('/session/check_servers&alive='+session_nb,function(data){
+			alert(data);
 			var seconds = new Date(new Date() - session_alive_launch).getSeconds();				
 			if(seconds<session_time_out)
-				if(!data)
-					var t = setTimeout('server_alive();',1000);
+				if(data==0)
+					var t = setTimeout('server_alive();',3000);
 				else
 					document.location.href='/session/get_client&sess='+session_nb;
 			else
@@ -24,7 +25,8 @@
 	
 	$('#session_start').click(function (){
 		
-		$.get('/session/start&new='+session_nb/*,function(d){document.getElementById('session_loading').innerHTML=d;}*/);
+		$.get('/session/check_servers');
+		$.get('/session/start&new='+session_nb,function(d){document.getElementById('session_loading').innerHTML=d;});
 		$('#session_loading').show();
 		server_alive();
 	});

@@ -22,10 +22,10 @@
 		var session_alive_launch = new Date();
 		var session_nb = 1; //récupérer ici la partie du joueur
 		function server_alive() {
-		$.get('/session/start&alive='+session_nb,function(data){
+		$.get('/session/check_servers&alive='+session_nb,function(data){
 			var seconds = new Date(new Date() - session_alive_launch).getSeconds();				
 			if(seconds<session_time_out)
-				if(!data)
+				if(data==0)
 					var t = setTimeout('server_alive();',1000);
 			else
 				{ alert('Serveur injoignable'); document.location.href='/session/start'; }
