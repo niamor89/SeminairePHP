@@ -60,6 +60,8 @@ class Server {
 	 */
 	private $session;
 	
+	private $ressources;
+	
 	/**
 	 * Server constructor
 	 * @param $address The address IP or hostname of the server (default: 127.0.0.1).
@@ -71,6 +73,17 @@ class Server {
 		$this->port = $port;
 		$this->verboseMode = $verboseMode;
 		$this->session = $session;
+		/***************** GAME ENV *******************/
+		//RESSOURCES
+		$this->ressources[] = new Ressource(1,8,8,array(13,31));
+		$this->ressources[] = new Ressource(1,2,2,array(13,31));
+		$this->ressources[] = new Ressource(1,4,10,array(13,31));
+		$this->ressources[] = new Ressource(1,6,9,array(13,31));
+		$this->ressources[] = new Ressource(2,15,4,array(16,15));
+		$this->ressources[] = new Ressource(2,18,8,array(16,15));
+		$this->ressources[] = new Ressource(2,20,10,array(16,15));
+		$this->ressources[] = new Ressource(2,15,15,array(16,15));
+		/**********************************************/
 
 		// socket creation
 		$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -203,6 +216,22 @@ class Server {
 			sleep(2);
 			$this->send($client, array("PING"));
 		}
+		else if($action[0] == 'MAP') {
+			$map = GetRow('SELECT url_carte FROM t_partie INNER JOIN t_carte ON t_partie.t_carte_id_carte=t_carte.id_carte WHERE id_partie='.$this->session.';');
+			$this->console("Sending Map: ".$map['url_carte']);
+			//$map=__DIR__.'\\maps\\'.$map['url_carte'];
+			//$map = fread(fopen($map, "r"), filesize($map));
+			$this->send($client, array("MAP",$map['url_carte']));
+		}
+		else if($action[0] == 'CHARACTER') {
+			$client->setCharacter(new Character());
+			$this->console("Sending Character....");
+			$this->send($client, array("CHARACTER",$client->getCharacter()));
+		}
+		else if($action[0] == 'RES') {
+			$this->console("Sending Ressources....");
+			$this->send($client, array("RES",$this->ressources));
+		}
 	}
 	
 	/**
@@ -215,6 +244,7 @@ class Server {
 		// BEFORE RUNNING =============
 		ExecSQL('DELETE FROM t_server WHERE pid_server='.getmypid().';');
 		InsertTable('t_server',array('pid_server'=>getmypid(),'id_partie'=>$this->session));
+		
 		// END OF BEFORE RUNNING =============
 		while(true) {
 			$changed_sockets = $this->sockets;
@@ -237,9 +267,15 @@ class Server {
 						$this->console("Header :-------------------\n$data\n------------------------------------------------");
 						if(!$client->getHandshake()) {
 							$this->console("Doing the handshake");
-							if($this->handshake($client, $data))
-								$this->send($client, array("PING"));
+							if($this->handshake($client, $data)){
+								/**************** CLIENT READY TO COMMUNICATE ****************/
+								//Implementer vérification de la partie et des droits du client
+								//Implementer vérification du admin et GOD_MODE
+								$this->send($client, array("READY"));
+								//$this->send($client, array("PING"));
+								/**************************************************************/
 								//$this->startProcess($client);
+							}							
 						}
 						elseif($bytes === 0) {
 							$this->disconnect($client);
@@ -279,12 +315,29 @@ class Server {
 		$text=json_encode($text);
 		$this->console("Send '".$text."' to client #{$client->getId()}");
 		$text = $this->encode($text);
-		
-		if(socket_write($client->getSocket(), $text, strlen($text)) === false) {
-			$this->console("Unable to write to client #{$client->getId()}'s socket");
-			$this->disconnect($client);
+		$length = strlen($text);
+        
+		while (true) {
+			$sent = socket_write($client->getSocket(), $text,$length);
+			if ($sent === false) {
+				$this->console("Unable to write to client #{$client->getId()}'s socket");
+				$this->disconnect($client);
+				break;
+			}
+
+			// Check if the entire message has been sented
+			//$this->console("Message sent part : ".$sent.'/'.$length);
+			if ($sent < $length) {
+				// If not sent the entire message.
+				// Get the part of the message that has not yet been sented as message
+				$text = substr($text, $sent);
+				// Get the length of the not sented part
+				$length -= $sent;
+			} else {
+				$this->console("Message sent : ".$text);
+				break;
+			}	
 		}
-		else $this->console("Message sent : ".$text);
 	}
 
 	/**
@@ -300,7 +353,7 @@ class Server {
 		if($length <= 125)
 			$header = pack('CC', $b1, $length);
 		elseif($length > 125 && $length < 65536)
-			$header = pack('CCS', $b1, 126, $length);
+			$header = pack('CCn', $b1, 126, $length);
 		elseif($length >= 65536)
 			$header = pack('CCN', $b1, 127, $length);
 		

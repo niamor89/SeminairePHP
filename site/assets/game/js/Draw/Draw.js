@@ -13,12 +13,14 @@
 		//SC.ctx.fillStyle = 'rgba(255,255,255,1)';
 		//SC.ctx.fillRect(0,0,800,550);
 		SC.Can.drawSprite(SC.Img.tiles,16,3,15,9);	
-		SC.Can.drawMap();		
-		SC.Can.drawMenu();
-		/*SC.Can.drawRessources();
-		SC.Can.drawHouses();
+		SC.Can.drawMap();	
+		SC.Can.drawRessources();
 		
-		SC.Can.drawPlayer();*/
+		SC.Can.drawMenu();
+		
+		SC.Can.drawPlayers();
+		/*SC.Can.drawRessources();
+		SC.Can.drawHouses();*/
 		
 		
 		//TEST					
@@ -120,22 +122,21 @@
 			}
 	};
 
-	/*SC.Can.drawPlayer = function () {
-		var sprite;
-		sprite = sprites[5+player.direction+player.etat];
-		
-		document.getElementById('alert').innerHTML = player.x;
-		
-		SC.ctx.drawImage(sprite, 0, 0, 50, 50, (player.x-1)*50, (player.y-1)*50, 50, 50);
+	SC.Can.drawPlayers = function () {
+		for(var p in SC.Data.ENV.characters)
+		{
+			p=SC.Data.ENV.characters[p];
+			SC.Can.drawSprite(SC.Img.sprites,5,p.Sprite,p.X,p.Y);
+		}
 	};
-
-	SC.Can.drawRessources = function ()
-	{
-		var i;
-		for(i=0;i<ressources.length;i++)
-			SC.ctx.drawImage((ressources[i].type==1?sprites[3]:sprites[4]), 0, 0, 50, 50, (ressources[i].x-1)*50, (ressources[i].y-1)*50, 50, 50);
+	SC.Can.drawRessources = function () {
+		for(var r in SC.Data.ENV.ressources)
+		{
+			r=SC.Data.ENV.ressources[r];
+			SC.Can.drawSprite(SC.Img.tiles,r.Sprite[0],r.Sprite[1],r.X,r.Y);
+		}
 	};
-
+	/*
 	SC.Can.drawConstructions = function ()
 	{
 		var i;

@@ -3,8 +3,12 @@
 	
 	SC.GL.Step = 0; 
 	SC.GL.Steps = [  //LOGICAL STEPS : 
-					"Doing random stuf",
-					"Just sitting here and ... waiting"
+					"Doing random stuf", // Loading images
+					"Just sitting here and ... waiting", // Try to initiate a communication
+					"Inserting random bugs", // Loading map
+					"Checking your bank account", // Loading character
+					"Admire flowers", // Loading ressources
+					"Is actually ready, just listen to music", // Is actually real
 				 ];
 	
 	SC.GL.Game_Loop = function  () {
@@ -20,20 +24,37 @@
 	
 	SC.GL.next_step = function(nb) {
 		SC.GL.Loading.progresion += nb || 0;
-		if(SC.GL.Step==0) {
+		if(SC.GL.Step==0) {// Loading images
 			
-			if((SC.Img.sprites || SC.Img.load_sprites(function() {SC.GL.next_step(34)})) && 
-			   (SC.Img.tiles || SC.Img.load_tiles(function() {SC.GL.next_step(33)}))  && 
-			   (SC.Img.items || SC.Img.load_items(function() {SC.GL.next_step(33)}))
-			   ) SC.GL.Step++; 			
-			
-			SC.Can.drawSplash();
-			
-			if(SC.GL.Loading.progresion>=100) {
-				SC.GL.Loading.progresion=100;
-				SC.GL.Game_Loop();
-			}			
+			if((SC.Img.sprites || SC.Img.load_sprites(function() {SC.GL.next_step(5)})) && 
+			   (SC.Img.tiles || SC.Img.load_tiles(function() {SC.GL.next_step(5)}))  && 
+			   (SC.Img.items || SC.Img.load_items(function() {SC.GL.next_step(5)}))
+			   ) { SC.GL.Step++; SC.GL.next_step();}		
 		}
+		else if(SC.GL.Step==1) {// Try to initiate a communication
+			if(SC.IO.ws || SC.IO.init(function() {SC.GL.next_step(5)})) { SC.GL.Step++; SC.GL.next_step();}	
+		}
+		else if(SC.GL.Step==2) {// Loading map
+			if(SC.Data.ENV.map) { SC.GL.Step++; SC.GL.next_step(10); }
+			else var t= setTimeout('SC.GL.next_step(0);',500);
+		}
+		else if(SC.GL.Step==3) {// Loading character
+			if(SC.Data.ENV.characters.length>0) { SC.GL.Step++; SC.GL.next_step(2); }
+			else var t= setTimeout('SC.GL.next_step(0);',500);
+		}
+		else if(SC.GL.Step==4) {// Loading ressources
+			if(SC.Data.ENV.ressources.length>0) { SC.GL.Step++; SC.GL.next_step(5); }
+			else var t= setTimeout('SC.GL.next_step(0);',500);
+		}
+		else {//Is actually ready, juste listen to music
+			var t = setTimeout('SC.GL.next_step(100);',1000);
+		}
+		SC.Can.drawSplash();
+		if(SC.GL.Loading.progresion>=100) {
+			SC.GL.Loading.progresion=100;
+			SC.GL.Game_Loop();
+		}			
+		
 	};
 	
 	SC.GL.move = function (dir) { //dir : 1 = top, 2 = right, 3 = bottom, 4 = left	

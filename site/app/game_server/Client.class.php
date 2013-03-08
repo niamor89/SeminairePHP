@@ -20,13 +20,12 @@ class Client {
 	private $id;
 	private $socket;
 	private $handshake;
-	private $pid;
+	private $character;
 	
 	function Client($id, $socket) {
 		$this->id = $id;
 		$this->socket = $socket;
 		$this->handshake = false;
-		$this->pid = null;
 	}
 	
 	public function getId() {
@@ -39,10 +38,6 @@ class Client {
 	
 	public function getHandshake() {
 		return $this->handshake;
-	}
-	
-	public function getPid() {
-		return $this->pid;
 	}
 	
 	public function setId($id) {
@@ -60,5 +55,58 @@ class Client {
 	public function setPid($pid) {
 		$this->pid = $pid;
 	}
+	
+	public function getCharacter() { return $this->character; }
+	public function setCharacter($character) { $this->character = $character; }
+}
+
+class Character {
+	public $Sprite;
+	private $Life;
+	private $Hunger;
+	private $Restlessness;
+	private $Illness;
+	private $Name;
+	private $Inventory;
+	public $X;
+	public $Y;
+	private $State;
+	private $Direction;
+	private $Hand;
+	
+	function Character() {
+		$this->Sprite = 20;
+		$this->X=5;
+		$this->Y=5;
+	}
+	
+	//public function getSprite() { return $this->Sprite; }
+	//public function setSprite($Sprite) { $this->Sprite = $Sprite; }
+}
+
+class Ressource {
+	public $Sprite;
+	public $Life;
+	private $Hunger;
+	private $Restlessness;
+	private $Illness;
+	private $Name;
+	public $Inventory;
+	public $X;
+	public $Y;
+	private $State;
+	private $Direction;
+	private $Hand;
+	
+	function Ressource($inv,$x,$y,$sprite) {
+		$this->Sprite = $sprite;
+		$this->X=$x;
+		$this->Y=$y;
+		$this->Life=5;
+		$this->Inventory=array($inv);
+	}
+	
+	//public function getSprite() { return $this->Sprite; }
+	//public function setSprite($Sprite) { $this->Sprite = $Sprite; }
 }
 ?>

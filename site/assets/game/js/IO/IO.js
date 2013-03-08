@@ -16,7 +16,7 @@
 		SC.IO.terminal.innerHTML = dateText+': '+text+'<br/>'+SC.IO.terminal.innerHTML;
 	}
 	
-	SC.IO.init = function () {
+	SC.IO.init = function (func) {
 		try {
 			SC.IO.ws = new WebSocket(SC.IO.url);
 			SC.IO.debug('Connecting... (readyState '+SC.IO.ws.readyState+')');
@@ -29,7 +29,7 @@
 			};
 			SC.IO.ws.onmessage = function(msg) {
 				SC.IO.debug('S:'+msg.data);
-				if(JSON.parse(msg.data)[0]=='PING') SC.IO.ws.write(['PONG']);
+				SC.IO.action(JSON.parse(msg.data));
 			};
 			SC.IO.ws.onclose = function(msg) {
 				if(this.readyState == 2)
@@ -42,14 +42,29 @@
 			SC.IO.ws.onerror = function(event) {
 				SC.IO.terminal.innerHTML = '<li style="color: red;">'+event.data+'</li>'+SC.IO.terminal.innerHTML;
 			};
+			func();
 		}
 		catch(exception) {
 			alert(exception);
 		}
 	}
 	
+	SC.IO.action = function (action) {
+		if(action[0]=='READY'){
+			SC.IO.ws.write(['MAP']);
+		}
+		else if(action[0]=='MAP'){
+			$.get('/app/game_server/maps/'+action[1],function (data) {SC.Data.ENV.map=JSON.parse(data); SC.IO.ws.write(['CHARACTER']);});
+		}
+		else if(action[0]=='CHARACTER'){
+			SC.Data.ENV.characters.push(action[1]); SC.IO.ws.write(['RES']);
+		}
+		else if(action[0]=='RES'){
+			SC.Data.ENV.ressources=action[1];
+		}
+	};
+	
 	$(function () {
 		SC.IO.terminal = document.getElementById('session_debug');
-		SC.IO.init();
 	});
 })(SC);
