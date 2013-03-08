@@ -28,8 +28,9 @@ catch(PDOException $e)
 }
 
 // AFFICHAGE DES ERREURS
-function PDO_Err() {
+function PDO_Err($t) {
 	global $pdo_err;
+	if($t) return $pdo_err;	
 	echo '<h2>Errors :</h2><ul>';
 	foreach ($pdo_err as $var) echo '<li>'.$var.'</li>';
 	echo '</ul>';

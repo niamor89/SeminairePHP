@@ -3,6 +3,7 @@
 	<ul>
 		<li><a href="#">Profil</a></li>
 		<li><a href="/user/logout&logoutconfirm=1">Logout</a></li>
+		<?php if(isAdmin()) echo '<li><a href="/admin/index">Administration</a></li>'; ?>
 	</ul>
 <?php } ?>
 

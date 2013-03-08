@@ -42,3 +42,21 @@
 	text-align:left;
 	font-size:10px;
 }
+
+/* ADMIN/INDEX */
+#admin {
+	height:100%;
+	width:100%;
+	margin-top:20px;
+	text-align:center;
+}
+#admin_out{
+	height:100%;
+	width:100%;
+	margin-top:20px;
+	text-align:center;
+	padding:10px;
+}
+#admin h1 {
+	font-size:28px;;
+}
