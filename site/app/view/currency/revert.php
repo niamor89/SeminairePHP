@@ -1,6 +1,6 @@
 <?php if ($display_currency_revert_form == 1) { ?>
 
-	<p><a href="/currency/buy">Achat de SC</a> - </b>Conversion de SC</b></p>
+	<p><a href="/currency/get">Achat de SC</a> - </b>Conversion de SC</b></p>
 		<form method="post" action="/currency/revert">
 			Montant de SC a rendre: <input type="text" id="currency_revert_survival_coins" name="f_currency_revert_survival_coins"/>
 			<br/>Vous allez recuperer: <span id="currency_revert_calculated_amount"></span>
