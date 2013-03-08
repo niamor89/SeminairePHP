@@ -31,6 +31,9 @@ ENGINE=InnoDB;
 CREATE TABLE T_Produit (
   id_Produit INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   nom_Produit VARCHAR(100) NOT NULL,
+  prix_Produit INTEGER NOT NULL,
+  type_Produit VARCHAR(100) NOT NULL,
+  url_image_Produit VARCHAR(100) NOT NULL,
   PRIMARY KEY(id_Produit)
 )
 ENGINE=InnoDB;
