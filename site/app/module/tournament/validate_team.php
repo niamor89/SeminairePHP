@@ -7,7 +7,9 @@ if(isset($_POST['tour_payment']))
 }
 if(isset($_POST['tour_validate_payment']))
 {
-header('Location: /tournament/start');
+	//InsertTable('T_Tournois',array('T_Etat_Tournois_id_Etat_Tournois'=>1, 'nom_Tournois'=>$_POST['tour_name'], 'date_Lancement'=>$_POST['tour_date'],'prix_Tournois'=>$_POST['tour_sum'], 'id_Createur'=>$_SESSION["id_user"])) or die("Erreur tournois non créé") ;
+	//UpdateTable('T_Inscription',array('code_Validation'=>'cD85hfPLo1'),'T_Etat_Inscription_id_Etat_Inscription'=>2);
+	header('Location: /tournament/start');
 }
 else
 {

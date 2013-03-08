@@ -33,9 +33,9 @@ Date : <?php echo date('l dS F Y - H:ia');?>
 Payment Type :
 <div class="tour_payment">
 	<form method="POST" action="/tournament/validate_team">
-		<img src="/assets/img/paypal_logo.png" > <input type="radio" name="tour_payment_type" value="paypal">     
-		<img src="/assets/img/cb_logo.png" "><input type="radio" name="tour_payment_type" value="cb">
-		<input type ="submit" name ="tour_payment" value="Choose">
+		<img src="/assets/img/paypal_logo.png" > <input type="radio" name="tour_payment_type" value="paypal" <?php if(isset($_POST['tour_payment']) && $_POST['tour_payment_type'] == "paypal"){echo 'checked'; } else if (!isset($cb)) { echo 'checked';} ?> >     
+		<img src="/assets/img/cb_logo.png" "><input type="radio" name="tour_payment_type" value="cb" <?php if(isset($_POST['tour_payment']) && $_POST['tour_payment_type'] == "cb"){echo 'checked'; $cb;} ?> >
+		<input type ="submit" class="button_wooden" name ="tour_payment" value="Choose">
 	</form>
 </div>
 
@@ -68,7 +68,7 @@ Payment Type :
 					<td align="right">Date Of Birth (Card Holder) :</td> <td width="20px"></td> <td align="left"> <input type="text" name="tour_card_holder_date_day" size="1"> <input type="text" name="tour_card_holder_date_month" size="1"> <input type="text" name="tour_card_holder_date_year" size="1"> </td>
 				</tr>
 				<tr>
-					<td></td> <td width="20px"></td> <td align="right"> <input type ="submit" name ="tour_validate_payment" value="Pay"></td>
+					<td></td> <td width="20px"></td> <td align="right"> <input class="button_wooden" type ="submit" name ="tour_validate_payment" value="Pay"></td>
 				</tr>
 			</table>
 		
@@ -80,7 +80,7 @@ Payment Type :
 	{
 		echo"</br>Normal Paypal information";?>
 		<form method="post" action="/tournament/validate_team">
-		<input type ="submit" name ="tour_validate_payment" value="Pay">
+		<input type ="submit" class="button_wooden" name ="tour_validate_payment" value="Pay">
 		</form>
 	<?php }}
 ?>
