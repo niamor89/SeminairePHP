@@ -1,0 +1,5 @@
+<?php
+
+$context["title"] = "Contact";
+
+?>

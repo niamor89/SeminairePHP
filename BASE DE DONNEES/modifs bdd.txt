@@ -1,2 +1,4 @@
 Dans la table T_Produit:
-	ajouter un champ type_produit ("buff" ou "item")
+	champ type_produit ("buff" ou "item") ajouté
+	champ prix_produit ajouté
+	champ url_image_Produit ajouté
