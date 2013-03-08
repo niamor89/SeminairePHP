@@ -32,7 +32,7 @@ $tab = farah_register_function();
 
 <div id="addfriend">
 	<div id="searchbar">
-			<form method="POST" action="add">
+			<form method="POST" action="/friends/add">
 			<input type="text" value="<?php $bar="Friend pseudo"?>" name="search" id="searching"/>
 			<button>Search</button>
 			
