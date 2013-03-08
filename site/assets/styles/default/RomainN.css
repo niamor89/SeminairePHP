@@ -40,8 +40,6 @@
 
 /**************** CONTENT ********************/
 #content table tr, td {border: 1px solid white; padding:1px}
-#content #shop_bufftab {display:inline}
-#content #shop_bufftab {display:none;}
 
 #content #index_inscription_button {position:absolute; top:450px; left:40px;}
 

@@ -19,8 +19,23 @@
 	}
 	
 	
+	function check_if_connected() {
+		return isset($_SESSION["id_user"]);
+	}
 	
-	
+	function check_if_admin() {
+		if(check_if_connected()) {
+			
+			$row = GetRow('SELECT is_admin FROM T_Joueur WHERE id_Joueur = '.$_SESSION["id_user"].';');
+			if ($row["is_admin"] == 1) return 1;
+			
+		} else {
+			return 0;
+		}
+		
+		return 0;
+		
+	}
 	
 	
 	
